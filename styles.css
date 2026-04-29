@@ -167,6 +167,15 @@ h3 {
   gap: 0.9rem;
 }
 
+.brand-logo {
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  object-fit: contain;
+  box-shadow: 0 14px 28px rgba(7, 27, 58, 0.16);
+}
+
 .brand-mark {
   width: 3rem;
   height: 3rem;
@@ -180,20 +189,7 @@ h3 {
   box-shadow: 0 18px 30px rgba(18, 104, 243, 0.28);
 }
 
-.brand-text {
-  display: grid;
-  gap: 0.1rem;
-}
-
-.brand-text strong {
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
-}
-
-.brand-text span {
-  font-size: 0.82rem;
-  color: var(--muted);
-}
+.brand-text { display: none; }
 
 .site-nav {
   justify-self: center;
@@ -932,6 +928,117 @@ h3 {
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.92rem;
+}
+
+/* Simple centered footer (used by minimal .footer in index.html) */
+.footer {
+  padding: 2.5rem 0;
+  text-align: center;
+  background: #06132b;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin: 0;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer a {
+  color: var(--secondary);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+.footer a:hover,
+.footer a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.92rem;
+  }
+  .footer p { padding: 0 1rem; }
+}
+
+/* Centered multi-column footer */
+.footer-centered {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.brand-block {
+  text-align: center;
+}
+
+.brand-footer {
+  justify-content: center;
+}
+
+.brand-footer .brand-logo {
+  width: clamp(14rem, 26vw, 20rem);
+  height: auto;
+  max-height: none;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.brand-desc {
+  margin-top: 0.75rem;
+  max-width: 48rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-grid-centered {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem 2.5rem;
+  width: 100%;
+  align-items: start;
+  justify-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.footer-grid-centered h3 {
+  margin: 0 0 0.6rem 0;
+}
+
+.footer-grid-centered ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+@media (min-width: 900px) {
+  .footer-centered { grid-template-columns: 1fr; }
+  .footer-grid-centered { max-width: 980px; }
+}
+
+@media (max-width: 720px) {
+  .brand-footer .brand-logo {
+    width: clamp(10rem, 58vw, 14rem);
+    max-height: none;
+  }
 }
 
 .floating-whatsapp {
