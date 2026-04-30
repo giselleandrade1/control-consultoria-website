@@ -598,7 +598,7 @@ h3 {
 .site-footer p,
 .service-card a,
 .catalog-card li {
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 .mini-metric {
@@ -1003,6 +1003,19 @@ h3 {
   font: inherit;
   padding: 0.95rem 1rem;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form select,
+[data-theme="dark"] .contact-form textarea {
+  border: 1px solid rgba(48, 54, 61, 0.3);
+  background: var(--bg-strong);
+  color: var(--text);
+}
+
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
 }
 
 .contact-form input:focus,
@@ -1027,7 +1040,7 @@ h3 {
 
 .form-note {
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 .cta-inner {
@@ -1062,6 +1075,17 @@ h3 {
   padding: 4rem 0 2rem;
   background: #06132b;
   color: rgba(255, 255, 255, 0.88);
+
+[data-theme="dark"] .site-footer {
+  background: #000000;
+  color: rgba(230, 237, 243, 0.88);
+}
+
+[data-theme="dark"] .site-footer h3,
+[data-theme="dark"] .brand-footer .brand-text strong,
+[data-theme="dark"] .footer-bottom {
+  color: #FFFFFF;
+}
 }
 
 .footer-grid {
