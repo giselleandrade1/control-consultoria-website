@@ -120,7 +120,7 @@ a {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
 }
 
 .section-soft {
@@ -190,7 +190,7 @@ h3 {
   display: grid;
   gap: 1rem;
   max-width: 800px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .skip-link {
@@ -1092,7 +1092,7 @@ h3 {
 }
 
 .cta-banner {
-  padding: 0 0 5rem;
+  padding: 0 0 4.5rem;
 }
 
 .contact-section {
@@ -1234,7 +1234,7 @@ h3 {
 }
 
 .site-footer {
-  padding: 4rem 0 2rem;
+  padding: 3.5rem 0 2rem;
   background: #06132b;
   color: rgba(255, 255, 255, 0.88);
 
@@ -1275,7 +1275,7 @@ h3 {
 }
 
 .footer-bottom {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.92rem;
@@ -1622,7 +1622,7 @@ h3 {
 
 @media (max-width: 720px) {
   .section {
-    padding: 3.8rem 0;
+    padding: 3.25rem 0;
   }
 
   .container {
