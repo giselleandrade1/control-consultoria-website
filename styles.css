@@ -86,7 +86,7 @@ body {
     radial-gradient(circle at top right, rgba(57, 56, 116, 0.05), transparent 40%),
     linear-gradient(180deg, #fbfcff 0%, #f6f8fc 100%);
   background-color: var(--bg);
-  line-height: 1.6;
+  line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -168,21 +168,21 @@ p {
 
 h1 {
   font-size: clamp(2.6rem, 6vw, 5.6rem);
-  line-height: 1.02;
+  line-height: 1.5;
   letter-spacing: -0.05em;
   color: var(--text-strong);
 }
 
 h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.08;
+  line-height: 1.5;
   letter-spacing: -0.04em;
   color: var(--text-strong);
 }
 
 h3 {
   font-size: 1.15rem;
-  line-height: 1.25;
+  line-height: 1.5;
   color: var(--text-strong);
 }
 
@@ -1067,6 +1067,7 @@ h3 {
   list-style: none;
   cursor: pointer;
   font-weight: 700;
+  line-height: 1.5;
   outline: none;
 }
 
@@ -1079,7 +1080,7 @@ h3 {
   float: right;
   color: var(--primary);
   font-size: 1.25rem;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 .faq-accordion details[open] summary::after {
@@ -1294,7 +1295,7 @@ h3 {
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
 }
 
