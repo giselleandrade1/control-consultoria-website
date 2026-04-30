@@ -68,18 +68,20 @@
                 <img class="brand-logo" src="images/control-logo.png" alt="Control Consultoria Empresarial" />
             </a>
 
-            <!-- Menu em linha única (com scroll horizontal em mobile) -->
-            <nav class="main-menu" aria-label="Menu principal">
+            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-menu"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="main-menu" class="main-menu" aria-label="Menu principal">
                 <a href="#inicio" class="menu-link">Início</a>
                 <a href="#sobre" class="menu-link">Sobre</a>
                 <a href="#servicos" class="menu-link">Serviços</a>
                 <a href="#solucoes" class="menu-link">Soluções</a>
                 <a href="#faq" class="menu-link">FAQ</a>
                 <a href="#contato" class="menu-link">Contato</a>
-            </nav>
-
-            <!-- Ações (Tema + WhatsApp) -->
-            <div class="nav-actions">
                 <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro"
                     aria-pressed="false">
                     <!-- Ícone Sol com nuvem (tema claro) -->
@@ -116,10 +118,11 @@
                     </span>
                 </button>
 
-                <a class="btn btn-primary" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">
+                <a class="btn btn-primary btn-whatsapp" href="https://wa.me/5511961371183" target="_blank"
+                    rel="noreferrer">
                     Fale pelo WhatsApp
                 </a>
-            </div>
+            </nav>
         </div>
     </header>
 

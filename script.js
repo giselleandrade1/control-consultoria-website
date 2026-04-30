@@ -1,4 +1,6 @@
 const header = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+const mainMenu = document.querySelector('#main-menu');
 const themeToggle = document.querySelector('.theme-toggle');
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const revealElements = document.querySelectorAll('.reveal');
@@ -6,6 +8,7 @@ const leadForm = document.querySelector('#lead-form');
 const whatsappNumber = '5511961371183';
 const themeStorageKey = 'theme';
 const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+const mobileMenuQuery = window.matchMedia('(max-width: 860px)');
 
 const readStoredTheme = () => {
     try {
@@ -39,6 +42,28 @@ const applyTheme = (theme, persist = true) => {
     }
 };
 
+const setMenuState = (isOpen) => {
+    if (!menuToggle || !mainMenu) {
+        return;
+    }
+
+    menuToggle.classList.toggle('is-open', isOpen);
+    mainMenu.classList.toggle('is-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    document.body.classList.toggle('menu-open', isOpen);
+};
+
+const closeMenu = () => setMenuState(false);
+
+const toggleMenu = () => {
+    if (!menuToggle || !mainMenu) {
+        return;
+    }
+
+    setMenuState(!menuToggle.classList.contains('is-open'));
+};
+
 let userHasThemePreference = false;
 const savedTheme = readStoredTheme();
 const initialTheme = savedTheme || getSystemTheme();
@@ -48,6 +73,8 @@ if (savedTheme) {
 }
 
 applyTheme(initialTheme, false);
+
+setMenuState(false);
 
 if (!userHasThemePreference) {
     const syncSystemTheme = (event) => {
@@ -85,6 +112,30 @@ themeToggle?.addEventListener('click', () => {
     }
 });
 
+menuToggle?.addEventListener('click', toggleMenu);
+
+mainMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeMenu();
+    }
+});
+
+const syncMenuOnViewportChange = (event) => {
+    if (!event.matches) {
+        closeMenu();
+    }
+};
+
+if (typeof mobileMenuQuery.addEventListener === 'function') {
+    mobileMenuQuery.addEventListener('change', syncMenuOnViewportChange);
+} else if (typeof mobileMenuQuery.addListener === 'function') {
+    mobileMenuQuery.addListener(syncMenuOnViewportChange);
+}
+
 const observer = new IntersectionObserver(
     (entries) => {
         for (const entry of entries) {
@@ -101,7 +152,7 @@ revealElements.forEach((element) => observer.observe(element));
 
 window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 12);
-});
+}, { passive: true });
 
 leadForm?.addEventListener('submit', (e) => {
     e.preventDefault();

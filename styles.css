@@ -237,6 +237,7 @@ h3 {
 }
 
 .header-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -277,28 +278,13 @@ h3 {
 
 .brand-text { display: none; }
 
-/* MENU EM LINHA ÚNICA COM SCROLL HORIZONTAL */
 .main-menu {
   display: flex;
   align-items: center;
-  gap: 1.35rem;
+  justify-content: flex-end;
+  gap: 1rem;
   flex: 1;
-  justify-content: center;
-  
-  /* Essencial para scroll horizontal em mobile */
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  
-  /* Padding para scroll confortável */
-  padding: 0.25rem 0;
-}
-
-/* Remover scrollbar em webkit */
-.main-menu::-webkit-scrollbar {
-  display: none;
+  min-width: 0;
 }
 
 .menu-link {
@@ -340,14 +326,6 @@ h3 {
 .menu-link:hover::after,
 .menu-link:focus-visible::after {
   transform: scaleX(1);
-}
-
-/* AÇÕES (TEMA + WHATSAPP) */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
 }
 
 .btn {
@@ -399,19 +377,24 @@ h3 {
   padding-inline: 1rem;
 }
 
+.btn-whatsapp {
+  white-space: nowrap;
+}
+
 .menu-toggle {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--bg-soft);
   color: var(--text);
   cursor: pointer;
   padding: 0;
-  transition: all 0.3s ease;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  flex-direction: column;
 }
 
 .menu-toggle:hover {
@@ -426,20 +409,19 @@ h3 {
 
 .menu-toggle span {
   display: block;
-  width: 1.1rem;
+  width: 1.15rem;
   height: 2px;
   border-radius: 999px;
-  background: var(--text);
-  transition: all 0.3s ease;
+  background: currentColor;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 
 .menu-toggle span + span {
   margin-top: 0.25rem;
 }
 
-/* Animação do hambúrguer */
 .menu-toggle.is-open span:nth-child(1) {
-  transform: rotate(45deg) translateY(11px);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .menu-toggle.is-open span:nth-child(2) {
@@ -447,7 +429,7 @@ h3 {
 }
 
 .menu-toggle.is-open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-11px);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .theme-toggle {
@@ -1524,6 +1506,100 @@ h3 {
   }
 }
 
+@media (max-width: 860px) {
+  .site-header {
+    backdrop-filter: none;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header-nav {
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .brand-logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    box-shadow: 0 10px 20px rgba(7, 27, 58, 0.12);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .main-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0.75rem;
+    right: 0.75rem;
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    margin-left: 0;
+    justify-content: stretch;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(7, 27, 58, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 160ms;
+    z-index: 1001;
+  }
+
+  .main-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  .menu-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 0.9rem;
+    border-radius: 12px;
+    background: rgba(125, 217, 87, 0.03);
+  }
+
+  .menu-link::after {
+    display: none;
+  }
+
+  .main-menu .theme-toggle,
+  .main-menu .btn-whatsapp {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .main-menu .theme-toggle {
+    margin-top: 0.15rem;
+  }
+
+  .main-menu .btn-whatsapp {
+    margin-top: 0.15rem;
+  }
+
+  .main-menu .theme-toggle {
+    border-radius: 12px;
+  }
+
+  .main-menu .btn {
+    padding-inline: 1rem;
+  }
+
+  .main-menu .btn-whatsapp {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 720px) {
   .section {
     padding: 3.8rem 0;
@@ -1531,10 +1607,6 @@ h3 {
 
   .container {
     width: min(100% - 1.25rem, var(--container));
-  }
-
-  .header-inner {
-    grid-template-columns: auto 1fr auto;
   }
 
   .brand-text span {
@@ -1574,10 +1646,6 @@ h3 {
   .cta-actions {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .site-nav {
-    top: calc(100% + 0.5rem);
   }
 
   .floating-whatsapp {
