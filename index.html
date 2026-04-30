@@ -62,52 +62,64 @@
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header" id="topo">
-        <div class="container header-inner">
+        <div class="header-nav">
+            <!-- Logo -->
             <a class="brand" href="#topo" aria-label="Control Consultoria Empresarial - início">
                 <img class="brand-logo" src="images/control-logo.png" alt="Control Consultoria Empresarial" />
             </a>
 
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
-                <span class="sr-only">Abrir menu</span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
-                <a href="#inicio">Início</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#solucoes">Soluções</a>
-                <a href="#contato">Contato</a>
+            <!-- Menu em linha única (com scroll horizontal em mobile) -->
+            <nav class="main-menu" aria-label="Menu principal">
+                <a href="#inicio" class="menu-link">Início</a>
+                <a href="#sobre" class="menu-link">Sobre</a>
+                <a href="#servicos" class="menu-link">Serviços</a>
+                <a href="#solucoes" class="menu-link">Soluções</a>
+                <a href="#faq" class="menu-link">FAQ</a>
+                <a href="#contato" class="menu-link">Contato</a>
             </nav>
 
-            <button class="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
-                <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5" />
-                        <line x1="12" y1="1" x2="12" y2="3" />
-                        <line x1="12" y1="21" x2="12" y2="23" />
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                        <line x1="1" y1="12" x2="3" y2="12" />
-                        <line x1="21" y1="12" x2="23" y2="12" />
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                    </svg>
-                </span>
-                <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    </svg>
-                </span>
-            </button>
+            <!-- Ações (Tema + WhatsApp) -->
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro"
+                    aria-pressed="false">
+                    <!-- Ícone Sol com nuvem (tema claro) -->
+                    <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Sol -->
+                            <circle cx="12" cy="9" r="4.5" class="sun-circle" />
+                            <!-- Raios do sol -->
+                            <line x1="12" y1="2.5" x2="12" y2="4.5" class="sun-ray" />
+                            <line x1="12" y1="13.5" x2="12" y2="15.5" class="sun-ray" />
+                            <line x1="19.5" y1="9" x2="21.5" y2="9" class="sun-ray" />
+                            <line x1="2.5" y1="9" x2="4.5" y2="9" class="sun-ray" />
+                            <line x1="18.36" y1="3.64" x2="19.78" y2="2.22" class="sun-ray" />
+                            <line x1="4.22" y1="15.78" x2="2.8" y2="17.2" class="sun-ray" />
+                            <!-- Nuvem -->
+                            <path
+                                d="M 6 16 Q 5 14.5 6.5 13.5 Q 5.5 12 7 11.5 Q 8 11 9 12 Q 10 11 11 11.5 Q 12.5 11 13 13.5 Q 14 12.5 15 13.5 Q 16 15 15 16 Z"
+                                class="cloud" />
+                        </svg>
+                    </span>
 
-            <a class="btn btn-primary header-cta" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">
-                Fale pelo WhatsApp
-            </a>
+                    <!-- Ícone Lua com nuvem (tema escuro) -->
+                    <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Lua -->
+                            <path d="M 20 10 A 8 8 0 1 1 8 2 A 7 7 0 0 0 20 10 Z" class="moon" />
+                            <!-- Nuvem -->
+                            <path
+                                d="M 4 15 Q 3 13.5 4.5 12.5 Q 3.5 11 5 10.5 Q 6 10 7 11 Q 8 10 9 10.5 Q 10.5 10 11 12.5 Q 12 11.5 13 12.5 Q 14 14 13 15 Z"
+                                class="cloud" />
+                        </svg>
+                    </span>
+                </button>
+
+                <a class="btn btn-primary" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">
+                    Fale pelo WhatsApp
+                </a>
+            </div>
         </div>
     </header>
 
@@ -671,8 +683,10 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Control Consultoria Empresarial - Developer 🤍 by <a href="https://github.com/giselleandrade1"
-                        target="_blank" rel="noopener noreferrer">@Giselleandrade1</a>.
+                <p>© 2026 Control Consultoria Empresarial — Desenvolvido com 🤍 por
+                    <a href="https://github.com/giselleandrade1" target="_blank">
+                        @Giselleandrade1
+                    </a>.
                     <br />
                     Todos os direitos reservados.
                 </p>

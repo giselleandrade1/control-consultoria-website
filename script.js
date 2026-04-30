@@ -1,6 +1,4 @@
 const header = document.querySelector('.site-header');
-const menuToggle = document.querySelector('.menu-toggle');
-const siteNav = document.querySelector('.site-nav');
 const themeToggle = document.querySelector('.theme-toggle');
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const revealElements = document.querySelectorAll('.reveal');
@@ -72,13 +70,19 @@ themeToggle?.addEventListener('click', () => {
     userHasThemePreference = true;
     applyTheme(nextTheme, true);
 
+    // Trigger animation
     themeToggle.classList.remove('is-animating');
-    void themeToggle.offsetWidth;
+    void themeToggle.offsetWidth; // Trigger reflow
     themeToggle.classList.add('is-animating');
 
     window.setTimeout(() => {
         themeToggle.classList.remove('is-animating');
-    }, 620);
+    }, 600);
+
+    // Haptic feedback (if available)
+    if (navigator.vibrate) {
+        navigator.vibrate(8);
+    }
 });
 
 const observer = new IntersectionObserver(
@@ -99,21 +103,8 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 12);
 });
 
-menuToggle?.addEventListener('click', () => {
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-    siteNav.classList.toggle('is-open');
-});
-
-siteNav?.addEventListener('click', (event) => {
-    if (event.target instanceof HTMLAnchorElement && siteNav.classList.contains('is-open')) {
-        siteNav.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-    }
-});
-
-leadForm?.addEventListener('submit', (event) => {
-    event.preventDefault();
+leadForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
 
     const formData = new FormData(leadForm);
     const name = String(formData.get('name') || '').trim();
