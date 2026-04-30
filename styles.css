@@ -651,6 +651,46 @@ h3 {
   backdrop-filter: blur(18px);
 }
 
+[data-theme="dark"] .glass-card {
+  /* Reduce translucency and increase contrast for dark mode */
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 28px 60px rgba(1, 6, 20, 0.6);
+  backdrop-filter: blur(20px) saturate(120%);
+}
+
+/* Additional adjustments for other translucent cards in dark mode */
+[data-theme="dark"] .diagnostic-list div,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .proof-card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .innovation-card,
+[data-theme="dark"] .catalog-card,
+[data-theme="dark"] .timeline-item,
+[data-theme="dark"] .about-summary,
+[data-theme="dark"] .panel-note,
+[data-theme="dark"] .values-grid article,
+[data-theme="dark"] .faq-accordion details,
+[data-theme="dark"] .hero-points span,
+[data-theme="dark"] .stat-pill {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: 0 12px 30px rgba(1, 6, 20, 0.45) !important;
+  color: var(--text) !important;
+}
+
+/* Ensure form controls remain distinct */
+[data-theme="dark"] .contact-form {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+[data-theme="dark"] .diagnostic-list div {
+  font-weight: 600;
+  padding: 1rem 1.1rem;
+}
+
 .hero-card-main {
   position: absolute;
   inset: 2rem 4rem 2rem 2rem;
@@ -797,9 +837,11 @@ h3 {
 [data-theme="dark"] .panel-note,
 [data-theme="dark"] .values-grid article,
 [data-theme="dark"] .faq-accordion details {
-  border: 1px solid var(--border);
-  background: var(--bg-soft);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  /* Dark theme: subtler translucency and stronger contrast for cards */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.52);
+  color: var(--text);
 }
 
 .proof-card {
