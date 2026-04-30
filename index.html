@@ -1,10 +1,19 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#071B3A" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <script>
+        try {
+            const stored = localStorage.getItem('theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = stored || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0F1419' : '#FFFFFF');
+        } catch (e) { }
+    </script>
     <title>Control Consultoria Empresarial | Recrutamento, Treinamento e Gestão</title>
     <meta name="description"
         content="A Control Consultoria Empresarial apoia empresas com recrutamento e seleção, treinamento corporativo, gestão empresarial e consultoria estratégica para crescer com segurança e performance." />
@@ -55,7 +64,7 @@
     <header class="site-header" id="topo">
         <div class="container header-inner">
             <a class="brand" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                <img class="brand-logo" src="images/logo-control.png" alt="Control Consultoria Empresarial" />
+                <img class="brand-logo" src="images/control-logo.png" alt="Control Consultoria Empresarial" />
             </a>
 
             <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
@@ -72,6 +81,29 @@
                 <a href="#solucoes">Soluções</a>
                 <a href="#contato">Contato</a>
             </nav>
+
+            <button class="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+                <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </span>
+                <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </span>
+            </button>
 
             <a class="btn btn-primary header-cta" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">
                 Fale pelo WhatsApp
@@ -596,7 +628,7 @@
         <div class="container footer-centered">
             <div class="brand-block">
                 <a class="brand brand-footer" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                    <img class="brand-logo" src="images/logo-control.png" alt="Control Consultoria Empresarial" />
+                    <img class="brand-logo" src="images/controllogo.png" alt="Control Consultoria Empresarial" />
                 </a>
                 <p class="brand-desc">Soluções em recrutamento, treinamento, desenvolvimento, consultoria e gestão
                     empresarial para negócios que desejam crescer com organização e direção.</p>
