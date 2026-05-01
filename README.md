@@ -40,10 +40,10 @@ controlconsultoria-website/
 ├── styles.css              # Estilos responsivos
 ├── script.js               # Funcionalidades JS
 ├── images/
-│   ├── control-logo.png    # Logo da marca
-│   ├── hero.svg            # SVG hero section
-│   ├── about.svg           # SVG about section
-│   └── service.svg         # SVG serviços section
+│   ├── control-consultoria_logo_principal.png    # Logo principal
+│   ├── figura1-inicio.png    # Hero imagem de início
+│   ├── hero-recrutamento.png # Imagem recrutamento
+│   └── service.svg           # SVG serviços section
 ├── REVISAO_COMPLETA.md     # Documentação completa
 └── README.md               # Este arquivo
 ```
