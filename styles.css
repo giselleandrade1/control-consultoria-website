@@ -191,8 +191,8 @@ p {
 }
 
 .brand-logo-small {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   object-fit: contain;
 }
 
@@ -261,8 +261,8 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 3rem;
+  height: 3rem;
   border: 1px solid var(--primary);
   border-radius: 8px;
   background: rgba(126, 217, 87, 0.08);
@@ -286,8 +286,8 @@ p {
 }
 
 .theme-toggle__icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
