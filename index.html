@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 
 <head>
@@ -14,16 +14,23 @@
             document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0F1419' : '#FFFFFF');
         } catch (e) { }
     </script>
-    <title>Control Consultoria Empresarial | Recrutamento, Treinamento e Gestão</title>
+
+    <title>Control Consultoria Empresarial | Recrutamento, Gestão e Estratégia</title>
     <meta name="description"
-        content="A Control Consultoria Empresarial apoia empresas com recrutamento e seleção, treinamento corporativo, gestão empresarial e consultoria estratégica para crescer com segurança e performance." />
-    <meta property="og:title" content="Control Consultoria Empresarial | Gestão, Talentos e Estratégia" />
-    <meta property="og:description"
-        content="Website institucional para a Control Consultoria Empresarial, com foco em conversão, autoridade e atendimento estratégico." />
+        content="Control Consultoria Empresarial oferece recrutamento e seleção, treinamento corporativo, gestão empresarial e consultoria estratégica. Soluções personalizadas para empresas que desejam crescer com eficiência e clareza." />
+    <meta name="keywords"
+        content="recrutamento, seleção, treinamento, gestão empresarial, consultoria RH, desenvolvimento de negócios" />
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Control Consultoria Empresarial | Recrutamento e Gestão" />
+    <meta property="og:description"
+        content="Consultoria empresarial em recrutamento, treinamento, gestão e estratégia. Soluções eficientes para empresas que querem crescer." />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Control Consultoria Empresarial" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content="Giselle Andrade" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,433 +43,294 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Control Consultoria Empresarial",
-        "alternateName": "Control C Gerenciamento Empresarial LTDA",
+        "description": "Consultoria empresarial, recrutamento e seleção, treinamento corporativo e gestão de negócios.",
+        "url": "https://controlconsultoria.com.br",
+        "telephone": "+55 11 96137-1183",
+        "email": "control01@outlook.com.br",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "São Paulo",
           "addressRegion": "SP",
           "addressCountry": "BR"
         },
-        "telephone": "+55 11 96137-1183",
-        "email": "control01@outlook.com.br",
-        "url": "https://www.instagram.com/controlconsultoria1",
         "sameAs": [
           "https://www.instagram.com/controlconsultoria1",
           "https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/",
           "https://www.facebook.com/share/1FVU6gsgdW/"
         ],
-        "areaServed": "Brasil",
-        "description": "Consultoria empresarial, recrutamento e seleção, treinamento corporativo, desenvolvimento de negócios e suporte contínuo."
+        "areaServed": "Brasil"
       }
     </script>
     <script defer src="script.js"></script>
 </head>
 
 <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
+    <!-- HEADER -->
     <header class="site-header" id="topo">
         <div class="header-nav">
-            <!-- Logo -->
-            <a class="brand" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                <img class="brand-logo" src="images/control-logo.png" alt="Control Consultoria Empresarial" />
-            </a>
-
-            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-menu"
+            <button class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-controls="main-menu"
                 aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
+            <a class="brand-logo-link" href="#topo" aria-label="Control Consultoria Empresarial">
+                <img class="brand-logo-small" src="images/control-consultoria_logo_principal.png"
+                    alt="Control Consultoria Empresarial - logo" loading="lazy" />
+            </a>
+
             <nav id="main-menu" class="main-menu" aria-label="Menu principal">
                 <a href="#inicio" class="menu-link">Início</a>
                 <a href="#sobre" class="menu-link">Sobre</a>
                 <a href="#servicos" class="menu-link">Serviços</a>
-                <a href="#solucoes" class="menu-link">Soluções</a>
-                <a href="#faq" class="menu-link">FAQ</a>
+                <a href="#recrutamento" class="menu-link">Soluções</a>
+                <a href="#faq" class="menu-link">FAQS</a>
                 <a href="#contato" class="menu-link">Contato</a>
-                <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro"
-                    aria-pressed="false">
-                    <!-- Ícone Sol com nuvem (tema claro) -->
-                    <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Sol -->
-                            <circle cx="12" cy="9" r="4.5" class="sun-circle" />
-                            <!-- Raios do sol -->
-                            <line x1="12" y1="2.5" x2="12" y2="4.5" class="sun-ray" />
-                            <line x1="12" y1="13.5" x2="12" y2="15.5" class="sun-ray" />
-                            <line x1="19.5" y1="9" x2="21.5" y2="9" class="sun-ray" />
-                            <line x1="2.5" y1="9" x2="4.5" y2="9" class="sun-ray" />
-                            <line x1="18.36" y1="3.64" x2="19.78" y2="2.22" class="sun-ray" />
-                            <line x1="4.22" y1="15.78" x2="2.8" y2="17.2" class="sun-ray" />
-                            <!-- Nuvem -->
-                            <path
-                                d="M 6 16 Q 5 14.5 6.5 13.5 Q 5.5 12 7 11.5 Q 8 11 9 12 Q 10 11 11 11.5 Q 12.5 11 13 13.5 Q 14 12.5 15 13.5 Q 16 15 15 16 Z"
-                                class="cloud" />
-                        </svg>
-                    </span>
-
-                    <!-- Ícone Lua com nuvem (tema escuro) -->
-                    <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Lua -->
-                            <path d="M 20 10 A 8 8 0 1 1 8 2 A 7 7 0 0 0 20 10 Z" class="moon" />
-                            <!-- Nuvem -->
-                            <path
-                                d="M 4 15 Q 3 13.5 4.5 12.5 Q 3.5 11 5 10.5 Q 6 10 7 11 Q 8 10 9 10.5 Q 10.5 10 11 12.5 Q 12 11.5 13 12.5 Q 14 14 13 15 Z"
-                                class="cloud" />
-                        </svg>
-                    </span>
-                </button>
-
-                <a class="btn btn-primary btn-whatsapp" href="https://wa.me/5511961371183" target="_blank"
-                    rel="noreferrer">
-                    Fale pelo WhatsApp
-                </a>
             </nav>
+
+            <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
+                <!-- Ícone Sol com nuvem (tema claro) -->
+                <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Sol -->
+                        <circle cx="12" cy="9" r="4.5" class="sun-circle" />
+                        <!-- Raios do sol -->
+                        <line x1="12" y1="2.5" x2="12" y2="4.5" class="sun-ray" />
+                        <line x1="12" y1="13.5" x2="12" y2="15.5" class="sun-ray" />
+                        <line x1="19.5" y1="9" x2="21.5" y2="9" class="sun-ray" />
+                        <line x1="2.5" y1="9" x2="4.5" y2="9" class="sun-ray" />
+                        <line x1="18.36" y1="3.64" x2="19.78" y2="2.22" class="sun-ray" />
+                        <line x1="4.22" y1="15.78" x2="2.8" y2="17.2" class="sun-ray" />
+                        <!-- Nuvem -->
+                        <path
+                            d="M 6 16 Q 5 14.5 6.5 13.5 Q 5.5 12 7 11.5 Q 8 11 9 12 Q 10 11 11 11.5 Q 12.5 11 13 13.5 Q 14 12.5 15 13.5 Q 16 15 15 16 Z"
+                            class="cloud" />
+                    </svg>
+                </span>
+
+                <!-- Ícone Lua com nuvem (tema escuro) -->
+                <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Lua -->
+                        <path d="M 20 10 A 8 8 0 1 1 8 2 A 7 7 0 0 0 20 10 Z" class="moon" />
+                        <!-- Nuvem -->
+                        <path
+                            d="M 4 15 Q 3 13.5 4.5 12.5 Q 3.5 11 5 10.5 Q 6 10 7 11 Q 8 10 9 10.5 Q 10.5 10 11 12.5 Q 12 11.5 13 12.5 Q 14 14 13 15 Z"
+                            class="cloud" />
+                    </svg>
+                </span>
+            </button>
         </div>
     </header>
 
-    <main id="conteudo">
+    <main id="main-content">
+        <!-- HERO SECTION -->
         <section class="hero section" id="inicio">
             <div class="container hero-grid">
-                <div class="hero-copy reveal">
+                <div class="hero-head reveal">
                     <span class="eyebrow">Consultoria, pessoas e performance</span>
-                    <h1>Controle o futuro do seu negócio com estratégia, organização e pessoas certas.</h1>
+                    <h1>
+                        <span class="hero-line">Transforme seu <span class="accent">negócio</span> com
+                            estratégia,</span>
+                        <span class="hero-line">organização e as pessoas certas.</span>
+                    </h1>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="hero-shape hero-shape--one" aria-hidden="true"></div>
+                    <div class="hero-shape hero-shape--two" aria-hidden="true"></div>
+                    <picture>
+                        <source srcset="images/figura1-inicio.png" media="(prefers-color-scheme: dark)">
+                        <img class="hero-image" src="images/figura1-inicio.png"
+                            alt="equipe discutindo planos empresariais" loading="eager" />
+                    </picture>
+                </div>
+
+                <div class="hero-body reveal">
+                    <div class="hero-divider" aria-hidden="true"></div>
                     <p class="hero-text">
-                        Oferecemos soluções completas em recrutamento, treinamento, desenvolvimento e gestão
-                        empresarial para empresas que desejam crescer com eficiência, clareza e direção.
+                        Oferecemos soluções completas em recrutamento, treinamento, desenvolvimento e gestão empresarial
+                        para empresas que desejam crescer com eficiência, clareza e direção estratégica.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="#contato">Fale com um especialista</a>
-                        <a class="btn btn-secondary" href="#solucoes">Conheça nossas soluções</a>
-                    </div>
-
-                    <div class="hero-points" aria-label="Destaques de atuação">
-                        <span>Gestão Empresarial</span>
-                        <span>Recrutamento e Seleção</span>
-                        <span>Treinamento Corporativo</span>
-                    </div>
-                </div>
-
-                <div class="hero-visual reveal" aria-label="Visual corporativo premium">
-                    <div class="visual-orb visual-orb-a"></div>
-                    <div class="visual-orb visual-orb-b"></div>
-
-                    <div class="hero-card hero-card-main glass-card">
-                        <div class="hero-card-top">
-                            <span class="stat-pill">São Paulo, SP</span>
-                            <span class="stat-pill stat-pill-alt">Atendimento estratégico</span>
-                        </div>
-                        <div class="hero-portrait" role="img"
-                            aria-label="Imagem abstrata corporativa representando uma equipe de alta performance"></div>
-                        <div class="hero-insight">
-                            <div>
-                                <strong>Gestão orientada a resultados</strong>
-                                <p>Estratégias para contratar melhor, organizar processos e escalar operações.</p>
-                            </div>
-                            <div class="mini-metric">
-                                <span>+95%</span>
-                                <small>soluções personalizadas</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-floating hero-floating-one glass-card">
-                        <span>+500</span>
-                        <small>processos apoiados</small>
-                    </div>
-
-                    <div class="hero-floating hero-floating-two glass-card">
-                        <span>+10</span>
-                        <small>áreas de atuação</small>
+                        <a class="btn btn-primary" href="#contato">Solicitar proposta</a>
+                        <a class="btn btn-secondary" href="#servicos">Conheça os serviços</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- PROOF SECTION - MÉTRICAS -->
         <section class="proof section section-soft">
             <div class="container proof-grid reveal">
                 <article class="proof-card">
-                    <strong>+500</strong>
+                    <strong class="counter" data-target="500">0</strong>
                     <span>processos apoiados</span>
                 </article>
                 <article class="proof-card">
-                    <strong>+95%</strong>
-                    <span>foco em soluções personalizadas</span>
+                    <strong>95%</strong>
+                    <span>soluções personalizadas</span>
                 </article>
                 <article class="proof-card">
-                    <strong>+10</strong>
-                    <span>áreas de atuação empresarial</span>
+                    <strong>10+</strong>
+                    <span>áreas de atuação</span>
                 </article>
                 <article class="proof-card">
                     <strong>SP</strong>
-                    <span>atendimento estratégico em São Paulo e região</span>
+                    <span>atendimento estratégico</span>
                 </article>
             </div>
         </section>
 
+        <!-- SERVICES SECTION -->
         <section class="section" id="servicos">
             <div class="container">
                 <div class="section-heading reveal">
-                    <span class="eyebrow">Soluções integradas para o sucesso</span>
-                    <h2>Uma estrutura completa para empresas que precisam de mais direção, velocidade e precisão.</h2>
+                    <span class="eyebrow">Soluções integradas</span>
+                    <h2>Estrutura completa para empresas que precisam de direção, velocidade e precisão.</h2>
                 </div>
 
                 <div class="service-grid">
                     <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">✦</div>
+                        <div class="service-icon">✦</div>
                         <h3>Recrutamento e Seleção</h3>
-                        <p>Identificamos e conectamos sua empresa aos profissionais ideais, com processos estruturados e
+                        <p>Identificamos e conectamos sua empresa aos profissionais ideais com processos estruturados e
                             assertivos.</p>
-                        <a href="#contato">Saiba mais</a>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">▣</div>
+                        <div class="service-icon">▣</div>
                         <h3>Treinamento Corporativo</h3>
                         <p>Desenvolvemos treinamentos personalizados para capacitar equipes e melhorar o desempenho
                             organizacional.</p>
-                        <a href="#contato">Saiba mais</a>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">↗</div>
-                        <h3>Desenvolvimento de Negócios</h3>
-                        <p>Apoiamos o crescimento do seu negócio com estratégias voltadas para evolução contínua.</p>
-                        <a href="#contato">Saiba mais</a>
-                    </article>
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">≋</div>
+                        <div class="service-icon">↗</div>
                         <h3>Gestão Empresarial</h3>
-                        <p>Organizamos processos, otimizamos rotinas e melhoramos a eficiência da gestão.</p>
-                        <a href="#contato">Saiba mais</a>
-                    </article>
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">⟡</div>
-                        <h3>Consultoria Especializada</h3>
-                        <p>Auxiliamos na tomada de decisões estratégicas com base em análise, experiência e
-                            direcionamento prático.</p>
-                        <a href="#contato">Saiba mais</a>
-                    </article>
-                    <article class="service-card reveal">
-                        <div class="service-icon" aria-hidden="true">◌</div>
-                        <h3>Suporte Contínuo</h3>
-                        <p>Acompanhamos sua empresa de forma contínua, garantindo evolução, organização e estabilidade.
+                        <p>Organizamos processos, otimizamos rotinas e melhoramos a eficiência operacional da gestão.
                         </p>
-                        <a href="#contato">Saiba mais</a>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">≋</div>
+                        <h3>Consultoria Estratégica</h3>
+                        <p>Auxiliamos na tomada de decisões estratégicas com análise, experiência e direcionamento
+                            prático.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">⟡</div>
+                        <h3>Desenvolvimento de Negócios</h3>
+                        <p>Apoiamos o crescimento contínuo do seu negócio com estratégias de evolução operacional.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">◌</div>
+                        <h3>Suporte Contínuo</h3>
+                        <p>Acompanhamos sua empresa continuamente, garantindo evolução, organização e estabilidade.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section section-soft" id="solucoes">
+        <!-- RECRUTAMENTO SECTION -->
+        <section class="section section-soft" id="recrutamento">
             <div class="container split-layout">
                 <div class="split-copy reveal">
-                    <span class="eyebrow">Desafios que resolvemos</span>
-                    <h2>Transformamos gargalos operacionais em uma rota clara de crescimento.</h2>
+                    <span class="eyebrow">Recrutamento estratégico</span>
+                    <h2>Conectamos sua empresa aos profissionais que impulsionam resultados.</h2>
                     <p>
-                        Empresas frequentemente enfrentam bloqueios que limitam crescimento e performance. Atendemos de
-                        forma prática e orientada a resultados para reverter esses pontos.
+                        Nosso processo de recrutamento vai além de formação e experiência. Buscamos profissionais
+                        alinhados com a cultura, valores e objetivos estratégicos da sua empresa.
                     </p>
 
-                    <div class="diagnostic-list">
-                        <div>Falta de profissionais qualificados</div>
-                        <div>Dificuldade na gestão de equipes</div>
-                        <div>Baixo desempenho operacional</div>
-                        <div>Falta de planejamento estratégico</div>
-                        <div>Processos desorganizados</div>
-                        <div>Falta de suporte consultivo</div>
-                    </div>
+                    <ul class="feature-list">
+                        <li>Recrutamento assertivo e eficiente</li>
+                        <li>Triagem técnica e comportamental</li>
+                        <li>Redução de tempo de contratação</li>
+                        <li>Perfis com aderência cultural</li>
+                        <li>Suporte pós-contratação</li>
+                    </ul>
 
-                    <div class="solutions-list">
-                        <h3>Soluções que entregamos</h3>
-                        <ul>
-                            <li>Recrutamento estratégico e assertivo</li>
-                            <li>Treinamento personalizado e eficiente</li>
-                            <li>Estruturação da gestão empresarial</li>
-                            <li>Desenvolvimento contínuo de negócios</li>
-                            <li>Consultoria estratégica sob medida</li>
-                            <li>Suporte especializado para tomada de decisões</li>
-                        </ul>
-                    </div>
+                    <a href="#contato" class="btn btn-secondary">Solicitar diagnóstico</a>
                 </div>
 
                 <div class="split-panel reveal">
-                    <div class="panel-image panel-image-diagnostic" role="img"
-                        aria-label="Ambiente corporativo moderno com equipe e dashboards"></div>
-                    <div class="panel-badge">Diagnóstico empresarial</div>
-                    <div class="panel-note">
-                        <strong>Visão analítica e prática</strong>
-                        <p>Mapeamos as necessidades reais da operação para propor soluções objetivas e escaláveis.</p>
-                    </div>
+                    <img class="panel-image" src="images/about.svg" alt="Processo de recrutamento e seleção"
+                        loading="lazy" />
                 </div>
             </div>
         </section>
 
+        <!-- DIFERENCIAIS SECTION -->
         <section class="section" id="diferenciais">
             <div class="container">
                 <div class="section-heading reveal">
-                    <span class="eyebrow">Soluções inovadoras para o futuro</span>
-                    <h2>Uma abordagem consultiva, inteligente e alinhada à realidade do seu negócio.</h2>
-                    <p>Nosso diferencial está na combinação entre atendimento personalizado, visão estratégica e
-                        experiência prática para entregar resultados concretos.</p>
+                    <span class="eyebrow">Nossos diferenciais</span>
+                    <h2>Abordagem consultiva, inteligente e alinhada à realidade do seu negócio.</h2>
                 </div>
 
                 <div class="innovation-grid">
                     <article class="innovation-card reveal">
                         <h3>Atendimento Personalizado</h3>
-                        <p>Cada empresa recebe soluções adaptadas à sua realidade.</p>
+                        <p>Cada empresa recebe soluções adaptadas à sua realidade, desafios e objetivos.</p>
                     </article>
                     <article class="innovation-card reveal">
                         <h3>Visão Estratégica</h3>
-                        <p>Atuamos com foco em crescimento sustentável e organização.</p>
+                        <p>Atuamos com foco em crescimento sustentável, organização e resultado.</p>
                     </article>
                     <article class="innovation-card reveal">
                         <h3>Experiência Prática</h3>
-                        <p>Aplicamos soluções que realmente funcionam no dia a dia.</p>
+                        <p>Aplicamos soluções que realmente funcionam no dia a dia operacional.</p>
                     </article>
                     <article class="innovation-card reveal">
                         <h3>Parceria com o Cliente</h3>
-                        <p>Trabalhamos lado a lado para alcançar resultados concretos.</p>
+                        <p>Trabalhamos lado a lado para alcançar e superar os resultados esperados.</p>
                     </article>
                     <article class="innovation-card reveal">
-                        <h3>Consultoria Estratégica</h3>
-                        <p>Diagnóstico, orientação e plano de ação desenhados para o contexto do cliente.</p>
+                        <h3>Flexibilidade e Escalabilidade</h3>
+                        <p>Soluções que crescem junto com o seu negócio e se adaptam às mudanças.</p>
                     </article>
                     <article class="innovation-card reveal">
                         <h3>Suporte Contínuo</h3>
-                        <p>Acompanhamento contínuo para garantir evolução e estabilidade.</p>
+                        <p>Acompanhamento recorrente para garantir evolução consistente e estabilidade.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section section-soft catalog-section" aria-labelledby="catalogo-title">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="eyebrow">Estilo catálogo premium</span>
-                    <h2 id="catalogo-title">Soluções que parecem produtos de alta performance.</h2>
-                </div>
-
-                <div class="catalog-grid">
-                    <article class="catalog-card reveal">
-                        <span class="badge">Recrutamento</span>
-                        <h3>Recrutamento para empresas</h3>
-                        <p>Captação e seleção com foco em aderência cultural, técnica e operacional.</p>
-                        <ul>
-                            <li>Triagem estratégica</li>
-                            <li>Perfis alinhados à vaga</li>
-                            <li>Mais velocidade de contratação</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Treinamento</span>
-                        <h3>Treinamento para equipes</h3>
-                        <p>Capacitação prática para elevar produtividade, atendimento e consistência.</p>
-                        <ul>
-                            <li>Conteúdo personalizado</li>
-                            <li>Performance aprimorada</li>
-                            <li>Engajamento da equipe</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Operação</span>
-                        <h3>Gestão administrativa</h3>
-                        <p>Organização de fluxos para melhorar rotina, controle e acompanhamento.</p>
-                        <ul>
-                            <li>Processos mais claros</li>
-                            <li>Melhor governança</li>
-                            <li>Eficiência operacional</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Segmento</span>
-                        <h3>Consultoria para salões de beleza</h3>
-                        <p>Estratégias para atendimento, organização e crescimento comercial do negócio.</p>
-                        <ul>
-                            <li>Gestão da experiência</li>
-                            <li>Rotinas mais eficientes</li>
-                            <li>Mais conversão e retenção</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Varejo</span>
-                        <h3>Consultoria para varejo</h3>
-                        <p>Ajuste de operação, equipe e posicionamento para melhorar desempenho.</p>
-                        <ul>
-                            <li>Fluxos mais ágeis</li>
-                            <li>Equipe mais preparada</li>
-                            <li>Visão comercial fortalecida</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Suporte</span>
-                        <h3>Suporte empresarial contínuo</h3>
-                        <p>Acompanhamento recorrente para manter evolução, foco e direção.</p>
-                        <ul>
-                            <li>Apoio consultivo</li>
-                            <li>Decisões mais seguras</li>
-                            <li>Performance consistente</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Processos</span>
-                        <h3>Organização de processos</h3>
-                        <p>Estruturação para reduzir falhas, retrabalho e perda de eficiência.</p>
-                        <ul>
-                            <li>Padronização</li>
-                            <li>Mais controle</li>
-                            <li>Execução previsível</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                    <article class="catalog-card reveal">
-                        <span class="badge">Desenvolvimento</span>
-                        <h3>Desenvolvimento operacional</h3>
-                        <p>Aprimoramento do negócio para ganhar escala com estrutura e clareza.</p>
-                        <ul>
-                            <li>Melhores práticas</li>
-                            <li>Operação fortalecida</li>
-                            <li>Crescimento sustentável</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-small" href="#contato">Solicitar proposta</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="sobre">
+        <!-- SOBRE SECTION -->
+        <section class="section section-soft" id="sobre">
             <div class="container about-grid">
                 <div class="about-copy reveal">
                     <span class="eyebrow">Sobre a Control</span>
                     <h2>Uma consultoria criada para apoiar empresas com método, proximidade e visão estratégica.</h2>
                     <p>
-                        A Control Consultoria Empresarial nasceu com o propósito de apoiar empresas na construção de
+                        A Control Consultoria Empresarial foi criada com o propósito de apoiar empresas na construção de
                         operações mais eficientes, equipes mais preparadas e estratégias mais inteligentes. Atuamos com
                         soluções personalizadas em recrutamento, treinamento, desenvolvimento e gestão empresarial,
                         oferecendo suporte consultivo para negócios que desejam crescer com organização, clareza e
                         direção.
                     </p>
 
-                    <div class="values-grid" aria-label="Missão visão e valores">
-                        <article>
+                    <div class="values-grid">
+                        <article class="value-card">
                             <h3>Missão</h3>
-                            <p>Ajudar empresas a evoluir por meio de pessoas, processos e estratégia.</p>
+                            <p>Ajudar empresas a evoluir por meio de pessoas, processos e estratégia inteligente.</p>
                         </article>
-                        <article>
+                        <article class="value-card">
                             <h3>Visão</h3>
                             <p>Ser referência em consultoria empresarial personalizada e soluções de gestão.</p>
                         </article>
-                        <article>
+                        <article class="value-card">
                             <h3>Valores</h3>
                             <p>Ética, parceria, eficiência, inovação, clareza e compromisso com resultados.</p>
                         </article>
@@ -470,21 +338,18 @@
                 </div>
 
                 <div class="about-panel reveal">
-                    <div class="about-figure" role="img"
-                        aria-label="Ambiente corporativo premium com equipe colaborando em estratégia"></div>
-                    <div class="about-summary glass-card">
-                        <strong>Atendimento humano, análise técnica e execução eficiente.</strong>
-                        <p>Um posicionamento comercial sofisticado com foco em conversão e credibilidade.</p>
-                    </div>
+                    <img class="panel-image" src="images/service.svg"
+                        alt="Equipe da Control Consultoria em reunião estratégica" loading="lazy" />
                 </div>
             </div>
         </section>
 
-        <section class="section section-soft process-section">
+        <!-- COMO FUNCIONA SECTION -->
+        <section class="section" id="como-funciona">
             <div class="container">
                 <div class="section-heading reveal">
-                    <span class="eyebrow">Como funciona</span>
-                    <h2>Um fluxo simples, consultivo e transparente.</h2>
+                    <span class="eyebrow">Processo consultivo</span>
+                    <h2>Um fluxo simples, transparente e orientado a resultados.</h2>
                 </div>
 
                 <ol class="timeline">
@@ -492,14 +357,14 @@
                         <span class="timeline-step">1</span>
                         <div>
                             <h3>Diagnóstico</h3>
-                            <p>Entendemos o momento atual, os desafios e as necessidades da empresa.</p>
+                            <p>Entendemos o momento, desafios e necessidades reais da sua empresa.</p>
                         </div>
                     </li>
                     <li class="timeline-item reveal">
                         <span class="timeline-step">2</span>
                         <div>
                             <h3>Planejamento</h3>
-                            <p>Criamos uma estratégia personalizada para recrutamento, gestão ou desenvolvimento.</p>
+                            <p>Criamos uma estratégia personalizada e viável para alcançar seus objetivos.</p>
                         </div>
                     </li>
                     <li class="timeline-item reveal">
@@ -513,83 +378,95 @@
                         <span class="timeline-step">4</span>
                         <div>
                             <h3>Resultados</h3>
-                            <p>Medimos avanços, ajustamos processos e fortalecemos a performance do negócio.</p>
+                            <p>Medimos avanços, ajustamos processos e consolidamos a performance.</p>
                         </div>
                     </li>
                 </ol>
             </div>
         </section>
 
-        <section class="section" id="faq">
+        <!-- FAQ SECTION -->
+        <section class="section section-soft" id="faq">
             <div class="container faq-layout">
                 <div class="section-heading reveal">
-                    <span class="eyebrow">Perguntas frequentes</span>
-                    <h2>Dúvidas comuns respondidas com clareza e objetividade.</h2>
+                    <span class="eyebrow">Dúvidas frequentes</span>
+                    <h2>Respostas claras e objetivas sobre nossos serviços.</h2>
                 </div>
 
                 <div class="faq-accordion reveal">
                     <details open>
-                        <summary>Como posso iniciar o processo de recrutamento?</summary>
-                        <p>Basta entrar em contato pelo WhatsApp ou formulário. A equipe fará um diagnóstico inicial
-                            para entender a vaga, o perfil desejado e as necessidades da empresa.</p>
+                        <summary>Como posso iniciar o processo?</summary>
+                        <p>Entre em contato pelo WhatsApp ou preencha o formulário de contato. Nossa equipe fará um
+                            diagnóstico inicial e apresentará as melhores soluções para sua necessidade.</p>
                     </details>
                     <details>
                         <summary>A Control atende quais tipos de empresas?</summary>
-                        <p>Atendemos empresas de diferentes segmentos, com foco especial em negócios que precisam
-                            melhorar gestão, equipe, processos e crescimento.</p>
+                        <p>Atendemos empresas de diversos segmentos e tamanhos que precisam melhorar gestão, equipe,
+                            processos e crescimento. Podemos customizar soluções para sua realidade específica.</p>
                     </details>
                     <details>
                         <summary>Os treinamentos são personalizados?</summary>
-                        <p>Sim. Cada treinamento pode ser adaptado conforme o perfil da equipe, os desafios do negócio e
-                            os objetivos da empresa.</p>
+                        <p>Sim, absolutamente. Cada treinamento é adaptado conforme o perfil da equipe, desafios do
+                            negócio e objetivos estratégicos definidos.</p>
                     </details>
                     <details>
-                        <summary>Como a gestão empresarial pode impactar meu negócio?</summary>
-                        <p>Uma gestão mais estruturada melhora processos, reduz falhas, aumenta produtividade e
-                            fortalece a tomada de decisão.</p>
+                        <summary>Qual o prazo para ver resultados?</summary>
+                        <p>Isso depende do tipo de solução. Recrutamentos geralmente mostram resultados em 2-4 semanas.
+                            Gestão e treinamentos têm impacto mais progressivo, com melhoras visíveis em 30-60 dias.</p>
                     </details>
                     <details>
-                        <summary>A consultoria estratégica é indicada para pequenas empresas?</summary>
-                        <p>Sim. Pequenas empresas podem se beneficiar muito de processos mais organizados, planejamento
-                            e orientação especializada.</p>
+                        <summary>A consultoria é indicada para pequenas empresas?</summary>
+                        <p>Totalmente. Pequenas empresas se beneficiam muito de processos organizados, planejamento
+                            estratégico e orientação especializada para crescer de forma sustentável.</p>
+                    </details>
+                    <details>
+                        <summary>Como é o acompanhamento após a contratação?</summary>
+                        <p>Oferecemos suporte contínuo com reuniões periódicas, ajustes conforme necessário e
+                            consultoria para garantir que os resultados se mantenham e evoluam.</p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <section class="cta-banner section" id="contato">
+        <!-- CTA FINAL SECTION -->
+        <section class="cta-banner section" id="cta-final">
             <div class="container cta-inner reveal">
                 <div>
-                    <span class="eyebrow">Transforme seu negócio hoje</span>
-                    <h2>Transforme a gestão do seu negócio com apoio especializado.</h2>
+                    <span class="eyebrow">Próximos passos</span>
+                    <h2>Comece a transformar seu negócio hoje mesmo.</h2>
                 </div>
                 <div class="cta-actions">
-                    <a class="btn btn-primary" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">Falar
-                        no WhatsApp</a>
-                    <a class="btn btn-secondary" href="mailto:control01@outlook.com.br">Enviar e-mail</a>
+                    <a class="btn btn-primary" href="https://wa.me/5511961371183" target="_blank"
+                        rel="noopener noreferrer">WhatsApp</a>
+                    <a class="btn btn-secondary" href="#contato">Formulário</a>
                 </div>
             </div>
         </section>
 
-        <section class="section contact-section" aria-labelledby="formulario-contato-title">
+        <!-- CONTACT SECTION -->
+        <section class="section contact-section" id="contato" aria-labelledby="contact-title">
             <div class="container contact-grid">
                 <div class="contact-copy reveal">
-                    <span class="eyebrow">Contato estratégico</span>
-                    <h2 id="formulario-contato-title">Solicite uma proposta em poucos minutos</h2>
+                    <span class="eyebrow">Entre em contato</span>
+                    <h2 id="contact-title">Solicite uma proposta em poucos minutos</h2>
                     <p>
-                        Preencha seus dados e nossa equipe entrará em contato com um atendimento direcionado.
+                        Preencha seus dados e nossa equipe entrará em contato com um atendimento estratégico e
+                        direcionado para sua necessidade.
                     </p>
 
                     <div class="contact-cards">
-                        <article class="contact-card glass-card">
+                        <article class="contact-card">
                             <strong>WhatsApp</strong>
                             <p>Resposta rápida e atendimento consultivo direto.</p>
+                            <a href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer">(11)
+                                96137-1183</a>
                         </article>
-                        <article class="contact-card glass-card">
+                        <article class="contact-card">
                             <strong>E-mail</strong>
                             <p>Envio de briefing, escopo e alinhamento inicial.</p>
+                            <a href="mailto:control01@outlook.com.br">control01@outlook.com.br</a>
                         </article>
-                        <article class="contact-card glass-card">
+                        <article class="contact-card">
                             <strong>São Paulo, SP</strong>
                             <p>Atendimento estratégico para empresas da capital e região.</p>
                         </article>
@@ -599,52 +476,55 @@
                 <form class="contact-form reveal" id="lead-form">
                     <div class="form-header">
                         <h3>Fale com um especialista</h3>
-                        <p>Preencha seus dados e nossa equipe entrará em contato com um atendimento direcionado.</p>
+                        <p>Preencha seus dados para que possamos entender melhor sua necessidade.</p>
                     </div>
 
-                    <label>
+                    <label for="form-name">
                         <span>Nome</span>
-                        <input type="text" name="name" autocomplete="name" placeholder="Seu nome" required />
+                        <input type="text" id="form-name" name="name" autocomplete="name"
+                            placeholder="Seu nome completo" required />
                     </label>
 
-                    <label>
+                    <label for="form-company">
                         <span>Empresa</span>
-                        <input type="text" name="company" autocomplete="organization" placeholder="Nome da empresa" />
+                        <input type="text" id="form-company" name="company" autocomplete="organization"
+                            placeholder="Nome da empresa" />
                     </label>
 
                     <div class="form-row">
-                        <label>
+                        <label for="form-email">
                             <span>E-mail</span>
-                            <input type="email" name="email" autocomplete="email" placeholder="voce@empresa.com"
-                                required />
+                            <input type="email" id="form-email" name="email" autocomplete="email"
+                                placeholder="voce@empresa.com" required />
                         </label>
-                        <label>
+                        <label for="form-phone">
                             <span>WhatsApp</span>
-                            <input type="tel" name="phone" autocomplete="tel" placeholder="(11) 99999-9999" required />
+                            <input type="tel" id="form-phone" name="phone" autocomplete="tel"
+                                placeholder="(11) 99999-9999" required />
                         </label>
                     </div>
 
-                    <label>
+                    <label for="form-service">
                         <span>Serviço de interesse</span>
-                        <select name="service" required>
-                            <option value="" selected disabled>Selecione uma solução</option>
+                        <select id="form-service" name="service" required>
+                            <option value="" disabled selected>Selecione uma solução</option>
                             <option>Recrutamento e Seleção</option>
                             <option>Treinamento Corporativo</option>
                             <option>Gestão Empresarial</option>
-                            <option>Consultoria Especializada</option>
-                            <option>Suporte Contínuo</option>
+                            <option>Consultoria Estratégica</option>
                             <option>Desenvolvimento de Negócios</option>
+                            <option>Suporte Contínuo</option>
                         </select>
                     </label>
 
-                    <label>
+                    <label for="form-message">
                         <span>Mensagem</span>
-                        <textarea name="message" rows="5"
+                        <textarea id="form-message" name="message" rows="5"
                             placeholder="Conte brevemente sua necessidade e prazo desejado." required></textarea>
                     </label>
 
                     <div class="form-actions">
-                        <button class="btn btn-primary" type="submit">Enviar para WhatsApp</button>
+                        <button class="btn btn-primary" type="submit">Enviar pelo WhatsApp</button>
                         <a class="btn btn-secondary" href="mailto:control01@outlook.com.br">Enviar por e-mail</a>
                     </div>
                     <p class="form-note">Ao enviar, você concorda em ser contatado pela equipe da Control.</p>
@@ -653,11 +533,13 @@
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container footer-centered">
             <div class="brand-block">
                 <a class="brand brand-footer" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                    <img class="brand-logo" src="images/controllogo.png" alt="Control Consultoria Empresarial" />
+                    <img class="brand-logo" src="images/control-consultoria_logo_principal.png"
+                        alt="Control Consultoria Empresarial" />
                 </a>
                 <p class="brand-desc">Soluções em recrutamento, treinamento, desenvolvimento, consultoria e gestão
                     empresarial para negócios que desejam crescer com organização e direção.</p>
@@ -669,8 +551,8 @@
                     <ul>
                         <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#solucoes">Soluções</a></li>
-                        <li><a href="#faq">FAQS</a></li>
+                        <li><a href="#recrutamento">Recrutamento</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
 
@@ -678,11 +560,12 @@
                     <h3>Contato</h3>
                     <ul>
                         <li><a href="mailto:control01@outlook.com.br">Email</a></li>
-                        <li><a href="https://wa.me/5511961371183" target="_blank" rel="noreferrer">WhatsApp</a></li>
+                        <li><a href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        </li>
                         <li><a href="https://www.instagram.com/controlconsultoria1" target="_blank"
-                                rel="noreferrer">Instagram</a></li>
+                                rel="noopener noreferrer">Instagram</a></li>
                         <li><a href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/"
-                                target="_blank" rel="noreferrer">LinkedIn</a></li>
+                                target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     </ul>
                 </div>
 
@@ -690,31 +573,39 @@
                     <h3>Redes sociais</h3>
                     <ul>
                         <li><a href="https://www.instagram.com/controlconsultoria1" target="_blank"
-                                rel="noreferrer">Instagram</a></li>
+                                rel="noopener noreferrer">Instagram</a></li>
                         <li><a href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/"
-                                target="_blank" rel="noreferrer">LinkedIn</a></li>
+                                target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         <li><a href="https://www.facebook.com/share/1FVU6gsgdW/" target="_blank"
-                                rel="noreferrer">Facebook</a></li>
+                                rel="noopener noreferrer">Facebook</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>© 2026 Control Consultoria Empresarial — Desenvolvido com 🤍 por
-                    <a href="https://github.com/giselleandrade1" target="_blank">
+                    <a href="https://github.com/giselleandrade1" target="_blank" rel="noopener noreferrer">
                         @Giselleandrade1
                     </a>.
-                    <br />
                     Todos os direitos reservados.
                 </p>
             </div>
         </div>
     </footer>
 
-    <a class="floating-whatsapp" href="https://wa.me/5511961371183" target="_blank" rel="noreferrer"
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a class="floating-whatsapp" href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer"
         aria-label="Fale conosco no WhatsApp">
-        WhatsApp
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.255.949c-1.238.503-2.335 1.236-3.156 2.241C3.060 10.814 2.5 12.338 2.5 13.946c0 1.948.556 3.75 1.611 5.256l-1.721 5.332 5.638-1.81c1.432.888 3.123 1.357 4.972 1.357 5.537 0 10.032-4.496 10.032-10.032 0-2.68-1.146-5.174-3.228-7.256-2.083-2.083-4.849-3.228-7.256-3.228" />
+        </svg>
     </a>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo da página" style="display: none;">
+        ↑
+    </button>
 </body>
 
 </html>
