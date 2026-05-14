@@ -37,8 +37,10 @@ Testado e otimizado para:
 ```
 controlconsultoria-website/
 ├── index.html              # Página principal
-├── styles.css              # Estilos responsivos
-├── script.js               # Funcionalidades JS
+├── styles/                 # Estilos compilados
+│   └── styles.css          # Estilos responsivos
+├── scripts/                # Scripts
+│   └── main.js             # Funcionalidades JS
 ├── images/
 │   ├── control-consultoria_logo_principal.png    # Logo principal
 │   ├── figura1-inicio.png    # Hero imagem de início
