@@ -11,7 +11,8 @@
             const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const theme = stored || (systemDark ? 'dark' : 'light');
             document.documentElement.setAttribute('data-theme', theme);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0F1419' : '#FFFFFF');
+            document.documentElement.style.colorScheme = theme;
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#061126' : '#FFFFFF');
         } catch (e) { }
     </script>
 
@@ -29,15 +30,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="author" content="Giselle Andrade" />
 
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,72 +62,105 @@
         "areaServed": "Brasil"
       }
     </script>
-    <script defer src="script.js"></script>
+    <script defer src="scripts/main.js"></script>
 </head>
 
 <body>
     <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
     <!-- HEADER -->
-    <header class="site-header" id="topo">
-        <div class="header-nav">
-            <button class="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-controls="main-menu"
+    <header class="site-header" id="topo" role="banner">
+        <div class="header-inner">
+
+            <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu"
                 aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="hamburger-icon"></span>
             </button>
 
-            <a class="brand-logo-link" href="#topo" aria-label="Control Consultoria Empresarial">
-                <img class="brand-logo-small" src="images/favicon.png" alt="Control Consultoria Empresarial - logo"
-                    loading="lazy" decoding="async" />
+            <a class="header-logo" href="#topo" aria-label="Control Consultoria Empresarial">
+                <img class="brand-logo-small" src="assets/images/favicon.png"
+                    alt="Control Consultoria Empresarial - logo" loading="lazy" decoding="async" />
             </a>
 
-            <nav id="main-menu" class="main-menu" aria-label="Menu principal">
-                <a href="#inicio" class="menu-link">Início</a>
-                <a href="#sobre" class="menu-link">Sobre</a>
-                <a href="#servicos" class="menu-link">Serviços</a>
-                <a href="#recrutamento" class="menu-link">Soluções</a>
-                <a href="#faq" class="menu-link">FAQS</a>
-                <a href="#contato" class="menu-link">Contato</a>
+            <nav class="desktop-nav" aria-label="Menu principal">
+                <a href="#inicio" class="desktop-nav-link">Início</a>
+                <a href="#sobre" class="desktop-nav-link">Sobre</a>
+                <a href="#servicos" class="desktop-nav-link">Serviços</a>
+                <a href="#recrutamento" class="desktop-nav-link">Soluções</a>
+                <a href="#faq" class="desktop-nav-link">FAQ</a>
+                <a href="#contato" class="desktop-nav-link">Contato</a>
             </nav>
 
-            <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
-                <!-- Ícone Sol com nuvem (tema claro) -->
-                <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Sol -->
-                        <circle cx="12" cy="9" r="4.5" class="sun-circle" />
-                        <!-- Raios do sol -->
-                        <line x1="12" y1="2.5" x2="12" y2="4.5" class="sun-ray" />
-                        <line x1="12" y1="13.5" x2="12" y2="15.5" class="sun-ray" />
-                        <line x1="19.5" y1="9" x2="21.5" y2="9" class="sun-ray" />
-                        <line x1="2.5" y1="9" x2="4.5" y2="9" class="sun-ray" />
-                        <line x1="18.36" y1="3.64" x2="19.78" y2="2.22" class="sun-ray" />
-                        <line x1="4.22" y1="15.78" x2="2.8" y2="17.2" class="sun-ray" />
-                        <!-- Nuvem -->
-                        <path
-                            d="M 6 16 Q 5 14.5 6.5 13.5 Q 5.5 12 7 11.5 Q 8 11 9 12 Q 10 11 11 11.5 Q 12.5 11 13 13.5 Q 14 12.5 15 13.5 Q 16 15 15 16 Z"
-                            class="cloud" />
-                    </svg>
-                </span>
+            <div class="header-actions">
+                <a href="#contato" class="header-cta">Solicitar proposta</a>
 
-                <!-- Ícone Lua com nuvem (tema escuro) -->
-                <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Lua -->
-                        <path d="M 20 10 A 8 8 0 1 1 8 2 A 7 7 0 0 0 20 10 Z" class="moon" />
-                        <!-- Nuvem -->
-                        <path
-                            d="M 4 15 Q 3 13.5 4.5 12.5 Q 3.5 11 5 10.5 Q 6 10 7 11 Q 8 10 9 10.5 Q 10.5 10 11 12.5 Q 12 11.5 13 12.5 Q 14 14 13 15 Z"
-                            class="cloud" />
-                    </svg>
-                </span>
-            </button>
+                <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro"
+                    aria-pressed="false">
+                    <!-- Ícone Sol com nuvem (tema claro) -->
+                    <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Sol -->
+                            <circle cx="12" cy="9" r="4.5" class="sun-circle" />
+                            <!-- Raios do sol -->
+                            <line x1="12" y1="2.5" x2="12" y2="4.5" class="sun-ray" />
+                            <line x1="12" y1="13.5" x2="12" y2="15.5" class="sun-ray" />
+                            <line x1="19.5" y1="9" x2="21.5" y2="9" class="sun-ray" />
+                            <line x1="2.5" y1="9" x2="4.5" y2="9" class="sun-ray" />
+                            <line x1="18.36" y1="3.64" x2="19.78" y2="2.22" class="sun-ray" />
+                            <line x1="4.22" y1="15.78" x2="2.8" y2="17.2" class="sun-ray" />
+                            <!-- Nuvem -->
+                            <path
+                                d="M 6 16 Q 5 14.5 6.5 13.5 Q 5.5 12 7 11.5 Q 8 11 9 12 Q 10 11 11 11.5 Q 12.5 11 13 13.5 Q 14 12.5 15 13.5 Q 16 15 15 16 Z"
+                                class="cloud" />
+                        </svg>
+                    </span>
+
+                    <!-- Ícone Lua com nuvem (tema escuro) -->
+                    <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Lua -->
+                            <path d="M 20 10 A 8 8 0 1 1 8 2 A 7 7 0 0 0 20 10 Z" class="moon" />
+                            <!-- Nuvem -->
+                            <path
+                                d="M 4 15 Q 3 13.5 4.5 12.5 Q 3.5 11 5 10.5 Q 6 10 7 11 Q 8 10 9 10.5 Q 10.5 10 11 12.5 Q 12 11.5 13 12.5 Q 14 14 13 15 Z"
+                                class="cloud" />
+                        </svg>
+                    </span>
+                </button>
+
+
+            </div>
         </div>
     </header>
+
+    <!-- MOBILE MENU FULLSCREEN -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-brand">
+                <img src="assets/images/favicon.png" alt="Control Consultoria Empresarial">
+                <span>Control Consultoria</span>
+            </div>
+
+            <nav class="mobile-menu-nav" aria-label="Menu mobile">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#recrutamento">Soluções</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <div class="mobile-menu-actions">
+                <a href="#contato" class="mobile-menu-cta">Solicitar proposta</a>
+                <a href="https://wa.me/5511961371183" class="mobile-menu-whatsapp" target="_blank"
+                    rel="noopener noreferrer">
+                    Abrir WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
     <main id="main-content">
         <!-- HERO SECTION -->
@@ -148,9 +182,8 @@
                     <div class="hero-shape hero-shape--one" aria-hidden="true"></div>
                     <div class="hero-shape hero-shape--two" aria-hidden="true"></div>
                     <picture>
-                        <source srcset="images/figura1-inicio.png" media="(prefers-color-scheme: dark)">
-                        <img class="hero-image" src="images/figura1-inicio.png"
-                            alt="equipe discutindo planos empresariais" loading="eager" />
+                        <source srcset="assets/images/figura1-inicio.png" media="(prefers-color-scheme: dark)">
+                        <img class="hero-image" src="assets/images/figura1-inicio.png" alt="ariais" loading="eager" />
                     </picture>
                 </div>
 
@@ -195,43 +228,102 @@
 
                 <div class="service-grid">
                     <article class="service-card reveal">
-                        <div class="service-icon">✦</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/recruitment.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Recrutamento e Seleção</h3>
-                        <p>Identificamos e conectamos sua empresa aos profissionais ideais com processos estruturados e
-                            assertivos.</p>
+                        <p>Identificamos e conectamos sua empresa aos profissionais ideais com processos estruturados,
+                            rápidos e assertivos.</p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon">▣</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/training.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Treinamento Corporativo</h3>
-                        <p>Desenvolvemos treinamentos personalizados para capacitar equipes e melhorar o desempenho
-                            organizacional.</p>
+                        <p>Desenvolvemos treinamentos personalizados para capacitar equipes, fortalecer competências e
+                            elevar a performance organizacional.</p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon">↗</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/management.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Gestão Empresarial</h3>
-                        <p>Organizamos processos, otimizamos rotinas e melhoramos a eficiência operacional da gestão.
+                        <p>Organizamos processos, otimizamos rotinas e fortalecemos a eficiência operacional da sua
+                            gestão.
                         </p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon">≋</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/strategy.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Consultoria Estratégica</h3>
-                        <p>Auxiliamos na tomada de decisões estratégicas com análise, experiência e direcionamento
-                            prático.</p>
+                        <p>Auxiliamos na tomada de decisões com análise, experiência e direcionamento prático para um
+                            crescimento sustentável.</p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon">⟡</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/growth.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Desenvolvimento de Negócios</h3>
-                        <p>Apoiamos o crescimento contínuo do seu negócio com estratégias de evolução operacional.</p>
+                        <p>Apoiamos o crescimento do negócio com estratégias de evolução comercial, operacional e
+                            estrutural.</p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                     <article class="service-card reveal">
-                        <div class="service-icon">◌</div>
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/support.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Suporte Contínuo</h3>
                         <p>Acompanhamos sua empresa continuamente, garantindo evolução, organização e estabilidade.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/hr.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3>Recursos Humanos</h3>
+                        <p>Estruturamos práticas de RH para apoiar clima, engajamento, retenção e desenvolvimento de
+                            talentos.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/development.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3>Desenvolvimento Organizacional</h3>
+                        <p>Consolidamos estruturas, papéis e rituais de gestão para tornar a operação mais madura e
+                            previsível.</p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/process.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3>Estruturação de Processos</h3>
+                        <p>Desenhamos fluxos, rotinas e checklists que reduzem ruído operacional e aumentam a clareza.
+                        </p>
+                        <a href="#contato" class="service-link">Saiba mais →</a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon-wrap" aria-hidden="true">
+                            <img class="service-icon" src="assets/icons/planning.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
+                        <h3>Planejamento Estratégico</h3>
+                        <p>Estruturamos prioridades, metas e planos de ação com visão executiva e foco em resultado.</p>
                         <a href="#contato" class="service-link">Saiba mais →</a>
                     </article>
                 </div>
@@ -249,7 +341,7 @@
                         alinhados com a cultura, valores e objetivos estratégicos da sua empresa.
                     </p>
 
-                    <img class="panel-image panel-image--mobile" src="images/hero-recrutamento.png"
+                    <img class="panel-image panel-image--mobile" src="assets/images/hero-recrutamento.png"
                         alt="Processo de recrutamento e seleção" loading="lazy" decoding="async" />
 
                     <ul class="feature-list">
@@ -261,11 +353,6 @@
                     </ul>
 
                     <a href="#contato" class="btn btn-secondary">Solicitar diagnóstico</a>
-                </div>
-
-                <div class="split-panel reveal">
-                    <img class="panel-image" src="images/hero-recrutamento.png" alt="Processo de recrutamento e seleção"
-                        loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>
@@ -279,29 +366,54 @@
                 </div>
 
                 <div class="innovation-grid">
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/person-check.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Atendimento Personalizado</h3>
-                        <p>Cada empresa recebe soluções adaptadas à sua realidade, desafios e objetivos.</p>
+                        <p>Cada empresa recebe soluções alinhadas à sua realidade, desafios e objetivos estratégicos.
+                        </p>
                     </article>
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/strategy.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Visão Estratégica</h3>
-                        <p>Atuamos com foco em crescimento sustentável, organização e resultado.</p>
+                        <p>Atuamos com foco em crescimento sustentável, organização e leitura de cenário.</p>
                     </article>
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/growth.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Experiência Prática</h3>
-                        <p>Aplicamos soluções que realmente funcionam no dia a dia operacional.</p>
+                        <p>Aplicamos soluções que funcionam na rotina, com foco em execução e consistência.</p>
                     </article>
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/service.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Parceria com o Cliente</h3>
-                        <p>Trabalhamos lado a lado para alcançar e superar os resultados esperados.</p>
+                        <p>Trabalhamos lado a lado para superar metas com clareza, proximidade e responsabilidade.</p>
                     </article>
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/management.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Flexibilidade e Escalabilidade</h3>
-                        <p>Soluções que crescem junto com o seu negócio e se adaptam às mudanças.</p>
+                        <p>Soluções que crescem junto com o negócio e se adaptam a mudanças de contexto.</p>
                     </article>
-                    <article class="innovation-card reveal">
+                    <article class="innovation-card feature-card reveal">
+                        <div class="feature-icon-wrap" aria-hidden="true">
+                            <img class="feature-icon" src="assets/icons/support.svg" alt="" loading="lazy"
+                                decoding="async" />
+                        </div>
                         <h3>Suporte Contínuo</h3>
-                        <p>Acompanhamento recorrente para garantir evolução consistente e estabilidade.</p>
+                        <p>Acompanhamento recorrente para garantir evolução consistente, estabilidade e evolução.</p>
                     </article>
                 </div>
             </div>
@@ -335,11 +447,6 @@
                             <p>Ética, parceria, eficiência, inovação, clareza e compromisso com resultados.</p>
                         </article>
                     </div>
-                </div>
-
-                <div class="about-panel reveal">
-                    <img class="panel-image" src="images/service.svg"
-                        alt="Equipe da Control Consultoria em reunião estratégica" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>
@@ -456,17 +563,29 @@
 
                     <div class="contact-cards">
                         <article class="contact-card">
+                            <div class="contact-icon-wrap" aria-hidden="true">
+                                <img class="contact-icon" src="assets/icons/whatsapp.svg" alt="" loading="lazy"
+                                    decoding="async" />
+                            </div>
                             <strong>WhatsApp</strong>
                             <p>Resposta rápida e atendimento consultivo direto.</p>
                             <a href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer">(11)
                                 96137-1183</a>
                         </article>
                         <article class="contact-card">
+                            <div class="contact-icon-wrap" aria-hidden="true">
+                                <img class="contact-icon" src="assets/icons/email.svg" alt="" loading="lazy"
+                                    decoding="async" />
+                            </div>
                             <strong>E-mail</strong>
                             <p>Envio de briefing, escopo e alinhamento inicial.</p>
                             <a href="mailto:control01@outlook.com.br">control01@outlook.com.br</a>
                         </article>
                         <article class="contact-card">
+                            <div class="contact-icon-wrap" aria-hidden="true">
+                                <img class="contact-icon" src="assets/icons/location.svg" alt="" loading="lazy"
+                                    decoding="async" />
+                            </div>
                             <strong>São Paulo, SP</strong>
                             <p>Atendimento estratégico para empresas da capital e região.</p>
                         </article>
@@ -514,6 +633,10 @@
                             <option>Consultoria Estratégica</option>
                             <option>Desenvolvimento de Negócios</option>
                             <option>Suporte Contínuo</option>
+                            <option>Recursos Humanos</option>
+                            <option>Desenvolvimento Organizacional</option>
+                            <option>Estruturação de Processos</option>
+                            <option>Planejamento Estratégico</option>
                         </select>
                     </label>
 
@@ -538,11 +661,29 @@
         <div class="container footer-centered">
             <div class="brand-block">
                 <a class="brand brand-footer" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                    <img class="brand-logo" src="images/control-consultoria_logo_principal.png"
+                    <img class="brand-logo" src="assets/images/control-consultoria_logo_principal.png"
                         alt="Control Consultoria Empresarial" />
                 </a>
                 <p class="brand-desc">Soluções em recrutamento, treinamento, desenvolvimento, consultoria e gestão
                     empresarial para negócios que desejam crescer com organização e direção.</p>
+                <div class="footer-socials" aria-label="Redes sociais">
+                    <a class="social-icon-wrap" href="https://www.instagram.com/controlconsultoria1" target="_blank"
+                        rel="noopener noreferrer" aria-label="Instagram">
+                        <img class="social-icon" src="assets/icons/instagram.svg" alt="" aria-hidden="true"
+                            loading="lazy" decoding="async">
+                    </a>
+                    <a class="social-icon-wrap"
+                        href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/"
+                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <img class="social-icon" src="assets/icons/linkedin.svg" alt="" aria-hidden="true"
+                            loading="lazy" decoding="async">
+                    </a>
+                    <a class="social-icon-wrap" href="https://www.facebook.com/share/1FVU6gsgdW/" target="_blank"
+                        rel="noopener noreferrer" aria-label="Facebook">
+                        <img class="social-icon" src="assets/icons/facebook.svg" alt="" aria-hidden="true"
+                            loading="lazy" decoding="async">
+                    </a>
+                </div>
             </div>
 
             <div class="footer-grid-centered">

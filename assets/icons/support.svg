@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Headphones -->
+  <path d="M18 32C18 24.3 24.3 18 32 18C39.7 18 46 24.3 46 32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Left ear cup -->
+  <rect x="10" y="32" width="6" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+  
+  <!-- Right ear cup -->
+  <rect x="48" y="32" width="6" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+  
+  <!-- Headband -->
+  <path d="M18 32C18 26.5 23.6 22 30 22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M46 32C46 26.5 40.4 22 34 22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Microphone boom (support line) -->
+  <line x1="32" y1="44" x2="32" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="51.5" r="1.5" fill="currentColor"/>
+  
+  <!-- Heart/Care symbol -->
+  <path d="M42 46C42 44.9 42.9 44 44 44C45.1 44 46 44.9 46 46C46 48.2 44 50 42 50C40 50 38 48.2 38 46C38 44.9 38.9 44 40 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

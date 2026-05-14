@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main dashboard rectangle -->
+  <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+  
+  <!-- Top bar -->
+  <line x1="8" y1="22" x2="56" y2="22" stroke="currentColor" stroke-width="1.5"/>
+  
+  <!-- Left sidebar -->
+  <line x1="20" y1="22" x2="20" y2="52" stroke="currentColor" stroke-width="1.5"/>
+  
+  <!-- Charts/Bars in main area -->
+  <rect x="28" y="30" width="4" height="14" rx="1" fill="currentColor" opacity="0.8"/>
+  <rect x="35" y="26" width="4" height="18" rx="1" fill="currentColor" opacity="0.6"/>
+  <rect x="42" y="32" width="4" height="12" rx="1" fill="currentColor" opacity="0.8"/>
+  <rect x="49" y="28" width="3" height="16" rx="1" fill="currentColor" opacity="0.6"/>
+  
+  <!-- Sidebar items -->
+  <circle cx="14" cy="28" r="1.5" fill="currentColor"/>
+  <circle cx="14" cy="36" r="1.5" fill="currentColor"/>
+  <circle cx="14" cy="44" r="1.5" fill="currentColor"/>
+</svg>
