@@ -1,588 +1,561 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="light">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <meta name="keywords"
-        content="consultoria empresarial, gestão empresarial, recrutamento e seleção, treinamento corporativo, gestão de pessoas, planejamento estratégico, processos" />
-    <meta name="author" content="Control Consultoria Empresarial" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Control Consultoria Empresarial" />
-    <meta property="og:title" content="Control Consultoria Empresarial | Consultoria, pessoas e performance" />
-    <meta property="og:description"
-        content="Consultoria empresarial em recrutamento, treinamento, desenvolvimento, consultoria e gestão para negócios que querem crescer com organização e direção." />
-    <meta property="og:image" content="./assets/images/figura1-inicio-1280.webp" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
-    <link rel="apple-touch-icon" href="./assets/images/apple-touch-180.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <title>Control Consultoria Empresarial | Consultoria, pessoas e performance</title>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Control Consultoria Empresarial",
-    "description": "Consultoria empresarial em recrutamento, treinamento, desenvolvimento, consultoria e gestão para negócios que querem crescer com organização e direção.",
-      "url": "https://controlconsultoria.com.br",
-      "telephone": "+55 11 96137-1183",
-      "email": "control01@outlook.com.br",
-      "areaServed": "Brasil",
-      "sameAs": [
-        "https://www.instagram.com/controlconsultoria1",
-        "https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/",
-        "https://www.facebook.com/share/1FVU6gsgdW/"
-      ]
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("control-theme");
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#14132f" : "#f8fafc";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
   </script>
-    <script src="./js/main.js" defer></script>
+  <meta name="description"
+    content="Consultoria empresarial em estratégia, gestão, pessoas e processos para empresas que buscam crescer com organização, clareza e direção.">
+  <meta name="author" content="Control Consultoria Empresarial">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://controlconsultoria.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Control Consultoria Empresarial">
+  <meta property="og:title" content="Control Consultoria | Estratégia, pessoas e resultados">
+  <meta property="og:description"
+    content="Soluções em gestão empresarial, pessoas e processos para transformar desafios em evolução consistente.">
+  <meta property="og:url" content="https://controlconsultoria.com.br/">
+  <meta property="og:image" content="https://controlconsultoria.com.br/assets/images/figura1-inicio-1280.webp">
+  <meta property="og:image:alt" content="Equipe reunida em uma análise estratégica">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Control Consultoria | Estratégia, pessoas e resultados">
+  <meta name="twitter:description" content="Consultoria empresarial para crescer com organização, clareza e direção.">
+  <meta name="twitter:image" content="https://controlconsultoria.com.br/assets/images/figura1-inicio-1280.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-180.png">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Control Consultoria | Estratégia, pessoas e resultados</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "ProfessionalService"],
+    "name": "Control Consultoria Empresarial",
+    "url": "https://controlconsultoria.com.br/",
+    "logo": "https://controlconsultoria.com.br/assets/images/control-consultoria_logo_principal.png",
+    "description": "Consultoria empresarial em estratégia, gestão, pessoas e processos.",
+    "telephone": "+55 11 96137-1183",
+    "email": "control01@outlook.com.br",
+    "areaServed": "Brasil",
+    "sameAs": [
+      "https://www.instagram.com/controlconsultoria1",
+      "https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/",
+      "https://www.facebook.com/share/1FVU6gsgdW/"
+    ]
+  }
+  </script>
+  <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
 
-    <header class="site-header" id="topo">
-        <div class="container header-inner">
-            <button class="mobile-menu-toggle" type="button" data-mobile-menu-toggle aria-label="Abrir menu"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="mobile-menu-toggle-lines" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </button>
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Control Consultoria — página inicial">
+        <picture class="brand-logo brand-logo-light" aria-hidden="true">
+          <img src="./assets/images/control-consultoria_logo_principal.png" width="180" height="96" alt="">
+        </picture>
+        <picture class="brand-logo brand-logo-dark" aria-hidden="true">
+          <img src="./assets/images/control-consultoria-logo-640.webp" width="180" height="96" alt="">
+        </picture>
+        <span class="brand-name"><strong>Control Consultoria</strong><small>Gestão empresarial</small></span>
+      </a>
 
-            <a class="brand" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                <img class="brand-mark" src="./assets/images/control-consultoria_logo_principal.png"
-                    alt="Control Consultoria Empresarial" />
-                <span class="brand-copy">
-                    <strong>Control Consultoria</strong>
-                    <span>Empresarial</span>
-                </span>
-            </a>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#processo">Processo</a>
+        <a href="#conteudos">Conteúdos</a>
+        <a href="#contato">Contato</a>
+      </nav>
 
-            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
-                <span class="theme-toggle-icon" data-theme-icon></span>
-            </button>
-
-            <nav class="desktop-nav" aria-label="Menu principal">
-                <a href="#inicio">Início</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#processo">Processo</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contato">Contato</a>
-            </nav>
-
-            <div class="header-actions">
-                <a class="header-cta button button-primary" href="#contato">Solicitar proposta</a>
-            </div>
-        </div>
-    </header>
-
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true">
-        <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu principal">
-            <div class="mobile-menu-top">
-                <a class="mobile-menu-brand" href="#topo" aria-label="Control Consultoria Empresarial - início">
-                    <img src="./assets/images/logo-small.webp" alt="Control Consultoria Empresarial" />
-                    <span class="mobile-menu-brand-text">
-                        <strong>Control Consultoria</strong>
-                        <span>Empresarial</span>
-                    </span>
-                </a>
-                <button class="mobile-menu-close" type="button" data-mobile-menu-close aria-label="Fechar menu">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-
-            <nav class="mobile-menu-nav" aria-label="Menu mobile">
-                <a href="#inicio">Início</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#processo">Processo</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contato">Contato</a>
-            </nav>
-
-            <div class="mobile-menu-actions">
-                <a class="button button-primary" href="#contato">Solicitar proposta</a>
-                <a class="button button-secondary" href="https://wa.me/5511961371183" target="_blank"
-                    rel="noopener noreferrer">WhatsApp</a>
-            </div>
-
-            <div class="mobile-menu-socials" aria-label="Redes sociais">
-                <a href="https://www.instagram.com/controlconsultoria1" target="_blank" rel="noopener noreferrer"
-                    aria-label="Instagram">
-                    <img src="./assets/icons/instagram.svg" alt="" aria-hidden="true" />
-                </a>
-                <a href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn">
-                    <img src="./assets/icons/linkedin.svg" alt="" aria-hidden="true" />
-                </a>
-                <a href="https://www.facebook.com/share/1FVU6gsgdW/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Facebook">
-                    <img src="./assets/icons/facebook.svg" alt="" aria-hidden="true" />
-                </a>
-            </div>
-        </div>
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Ativar tema escuro">
+          <span data-theme-icon aria-hidden="true"></span>
+        </button>
+        <a class="button button-primary header-cta" href="#contato">Fale conosco</a>
+        <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-label="Abrir menu"
+          aria-controls="mobile-menu" aria-expanded="false">
+          <span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <main id="main-content">
-        <section class="hero section" id="inicio">
-            <div class="container hero-grid">
-                <div class="hero-copy reveal">
-                    <span class="eyebrow">Consultoria, pessoas e performance</span>
-                    <h1>Transforme seu negócio com estratégia, organização e as pessoas certas.</h1>
-                    <p class="hero-text">Conectamos sua empresa aos profissionais que impulsionam resultados.</p>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true">
+    <button class="menu-backdrop" type="button" data-menu-close aria-label="Fechar menu"></button>
+    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+      <div class="mobile-panel-head">
+        <a class="brand brand-mobile" href="#inicio" aria-label="Control Consultoria — página inicial">
+          <picture class="brand-logo brand-logo-light" aria-hidden="true">
+            <img src="./assets/images/control-consultoria_logo_principal.png" width="160" height="84" alt="">
+          </picture>
+          <picture class="brand-logo brand-logo-dark" aria-hidden="true">
+            <img src="./assets/images/control-consultoria-logo-640.webp" width="160" height="84" alt="">
+          </picture>
+          <span class="brand-name"><strong>Control Consultoria</strong><small>Gestão empresarial</small></span>
+        </a>
+        <button class="icon-button" type="button" data-menu-close aria-label="Fechar menu"><span
+            aria-hidden="true">×</span></button>
+      </div>
+      <nav class="mobile-nav" aria-label="Navegação mobile">
+        <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a><a href="#processo">Processo</a>
+        <a href="#conteudos">Conteúdos</a><a href="#faq">FAQ</a><a href="#contato">Contato</a>
+      </nav>
+      <a class="button button-primary" href="#contato">Solicite uma consultoria</a>
+      <a class="mobile-whatsapp" href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer">WhatsApp ·
+        (11) 96137-1183</a>
+    </div>
+  </div>
 
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="#contato">Solicitar diagnóstico</a>
-                        <a class="button button-secondary" href="#servicos">Conhecer soluções</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="hero-visual reveal">
-                <div class="hero-card hero-card-image">
-                    <picture>
-                        <source srcset="./assets/images/figura1-inicio-1280.webp" type="image/webp" />
-                        <img src="./assets/images/figura1-inicio.png"
-                            alt="Ambiente corporativo com análise estratégica e gestão" loading="eager"
-                            decoding="async" />
-                    </picture>
-                </div>
-
-                <div class="hero-card hero-card-overlay">
-                    <span class="eyebrow eyebrow-inline">Soluções integradas</span>
-                    <p>Estrutura completa para empresas que precisam de direção, velocidade e precisão.</p>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <section class="section section-soft proof" aria-label="Indicadores de valor">
-            <div class="container proof-grid reveal">
-                <article class="proof-card">
-                    <strong>500+</strong>
-                    <span>processos apoiados</span>
-                </article>
-                <article class="proof-card">
-                    <strong>95%</strong>
-                    <span>soluções personalizadas</span>
-                </article>
-                <article class="proof-card">
-                    <strong>10+</strong>
-                    <span>áreas de atuação</span>
-                </article>
-                <article class="proof-card">
-                    <strong>SP</strong>
-                    <span>atendimento estratégico</span>
-                </article>
-            </div>
-        </section>
-
-        <section class="section" id="servicos">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="eyebrow">Soluções</span>
-                    <h2>Estrutura completa para empresas que precisam de direção, velocidade e precisão.</h2>
-                    <p>Serviços desenhados para apoiar decisões, organizar operações e acelerar resultados com clareza e
-                        consistência.</p>
-                </div>
-
-                <div class="service-grid">
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/recruitment.svg" alt="" aria-hidden="true" />
-                        <h3>Recrutamento e Seleção</h3>
-                        <p>Identificamos e conectamos sua empresa aos profissionais ideais com processos estruturados,
-                            rápidos e assertivos.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/training.svg" alt="" aria-hidden="true" />
-                        <h3>Treinamento Corporativo</h3>
-                        <p>Desenvolvemos treinamentos personalizados para capacitar equipes, fortalecer competências e
-                            elevar a performance organizacional.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/management.svg" alt="" aria-hidden="true" />
-                        <h3>Gestão Empresarial</h3>
-                        <p>Organizamos processos, otimizamos rotinas e fortalecemos a eficiência operacional da sua
-                            gestão.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/strategy.svg" alt="" aria-hidden="true" />
-                        <h3>Consultoria Estratégica</h3>
-                        <p>Auxiliamos na tomada de decisões com análise, experiência e direcionamento prático para um
-                            crescimento sustentável.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/development.svg" alt="" aria-hidden="true" />
-                        <h3>Desenvolvimento Organizacional</h3>
-                        <p>Consolidamos estruturas, papéis e rituais de gestão para tornar a operação mais madura e
-                            previsível.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/process.svg" alt="" aria-hidden="true" />
-                        <h3>Estruturação de Processos</h3>
-                        <p>Desenhamos fluxos, rotinas e checklists que reduzem ruído operacional e aumentam a clareza.
-                        </p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/hr.svg" alt="" aria-hidden="true" />
-                        <h3>Gestão de Pessoas</h3>
-                        <p>Estruturamos práticas para apoiar clima, engajamento, retenção e desenvolvimento de talentos.
-                        </p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/planning.svg" alt="" aria-hidden="true" />
-                        <h3>Planejamento Estratégico</h3>
-                        <p>Estruturamos prioridades, metas e planos de ação com visão executiva e foco em resultado.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/support.svg" alt="" aria-hidden="true" />
-                        <h3>Suporte Contínuo</h3>
-                        <p>Acompanhamos sua empresa continuamente, garantindo evolução, organização e estabilidade.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <img class="service-icon" src="./assets/icons/admin.svg" alt="" aria-hidden="true" />
-                        <h3>Apoio Administrativo</h3>
-                        <p>Oferecemos apoio administrativo para fortalecer rotina, organização e eficiência operacional.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-soft" id="diferenciais">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="eyebrow">Diferenciais</span>
-                    <h2>Abordagem consultiva, inteligente e alinhada à realidade do seu negócio.</h2>
-                    <p>Sem fórmulas prontas. Cada solução é pensada para a realidade da empresa, com clareza,
-                        proximidade e foco em resultado.</p>
-                </div>
-
-                <div class="differentiator-grid">
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/person-check.svg" alt="" aria-hidden="true" />
-                        <h3>Atendimento personalizado</h3>
-                        <p>Cada empresa recebe soluções alinhadas à sua realidade, desafios e objetivos estratégicos.
-                        </p>
-                    </article>
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/strategy.svg" alt="" aria-hidden="true" />
-                        <h3>Visão estratégica</h3>
-                        <p>Atuamos com foco em crescimento sustentável, organização e leitura de cenário.</p>
-                    </article>
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/process.svg" alt="" aria-hidden="true" />
-                        <h3>Experiência prática</h3>
-                        <p>Aplicamos soluções que funcionam na rotina, com foco em execução e consistência.</p>
-                    </article>
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/support.svg" alt="" aria-hidden="true" />
-                        <h3>Parceria com o cliente</h3>
-                        <p>Trabalhamos lado a lado para superar metas com clareza, proximidade e responsabilidade.</p>
-                    </article>
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/management.svg" alt="" aria-hidden="true" />
-                        <h3>Flexibilidade e escalabilidade</h3>
-                        <p>Soluções que crescem junto com o negócio e se adaptam a mudanças de contexto.</p>
-                    </article>
-                    <article class="differentiator-card reveal">
-                        <img src="./assets/icons/support.svg" alt="" aria-hidden="true" />
-                        <h3>Suporte contínuo</h3>
-                        <p>Acompanhamento recorrente para garantir evolução consistente, estabilidade e evolução.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-soft" id="sobre">
-            <div class="container split-layout">
-                <div class="split-copy reveal">
-                    <span class="eyebrow">Sobre a Control</span>
-                    <h2>Uma consultoria criada para apoiar empresas com método, proximidade e visão estratégica.</h2>
-                    <p>A Control Consultoria Empresarial foi criada com o propósito de apoiar empresas na construção de
-                        operações mais eficientes, equipes mais preparadas e estratégias mais inteligentes. Atuamos com
-                        soluções personalizadas em recrutamento, treinamento, desenvolvimento e gestão empresarial,
-                        oferecendo suporte consultivo para negócios que desejam crescer com organização, clareza e
-                        direção.</p>
-
-                    <div class="value-grid">
-                        <article class="value-card">
-                            <h3>Missão</h3>
-                            <p>Ajudar empresas a evoluir por meio de pessoas, processos e estratégia inteligente.</p>
-                        </article>
-                        <article class="value-card">
-                            <h3>Visão</h3>
-                            <p>Ser referência em consultoria empresarial personalizada e soluções de gestão.</p>
-                        </article>
-                        <article class="value-card">
-                            <h3>Valores</h3>
-                            <p>Ética, parceria, eficiência, inovação, clareza e compromisso com resultados.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="split-visual reveal">
-                    <div class="split-image-card">
-                        <picture>
-                            <source srcset="./assets/images/hero-recrutamento-960.webp" type="image/webp" />
-                            <img src="./assets/images/hero-recrutamento.png"
-                                alt="Profissionais em processo de recrutamento e análise de perfil" loading="lazy"
-                                decoding="async" />
-                        </picture>
-                    </div>
-
-                    <div class="split-note">
-                        <img src="./assets/icons/person-check.svg" alt="" aria-hidden="true" />
-                        <div>
-                            <strong>Abordagem consultiva</strong>
-                            <p>Cada entrega é pensada para o contexto da empresa, sem fórmulas genéricas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="processo">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="eyebrow">Processo consultivo</span>
-                    <h2>Um fluxo simples, transparente e orientado a resultados.</h2>
-                    <p>Do diagnóstico ao acompanhamento, a experiência foi pensada para ser clara, técnica e confortável
-                        para o cliente.</p>
-                </div>
-
-                <div class="process-grid">
-                    <article class="process-card reveal">
-                        <span class="process-step">01</span>
-                        <h3>Diagnóstico</h3>
-                        <p>Entendemos o momento, desafios e necessidades reais da sua empresa.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <span class="process-step">02</span>
-                        <h3>Direcionamento</h3>
-                        <p>Criamos uma estratégia personalizada e viável para alcançar seus objetivos.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <span class="process-step">03</span>
-                        <h3>Execução</h3>
-                        <p>Aplicamos as soluções com acompanhamento próximo e comunicação clara.</p>
-                    </article>
-                    <article class="process-card reveal">
-                        <span class="process-step">04</span>
-                        <h3>Evolução</h3>
-                        <p>Medimos avanços, ajustamos processos e consolidamos a performance.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-soft" id="faq">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="eyebrow">Dúvidas frequentes</span>
-                    <h2>Respostas claras e objetivas sobre nossos serviços.</h2>
-                </div>
-
-                <div class="faq-grid reveal">
-                    <details open>
-                        <summary>Como iniciar o atendimento?</summary>
-                        <p>Entre em contato pelo WhatsApp ou preencha o formulário de contato. Nossa equipe fará um
-                            diagnóstico inicial e apresentará as melhores soluções para sua necessidade.</p>
-                    </details>
-                    <details>
-                        <summary>A Control atende quais tipos de empresas?</summary>
-                        <p>Atendemos empresas de diversos segmentos e tamanhos que precisam melhorar gestão, equipe,
-                            processos e crescimento. Podemos customizar soluções para sua realidade específica.</p>
-                    </details>
-                    <details>
-                        <summary>Os treinamentos são personalizados?</summary>
-                        <p>Sim, absolutamente. Cada treinamento é adaptado conforme o perfil da equipe, desafios do
-                            negócio e objetivos estratégicos definidos.</p>
-                    </details>
-                    <details>
-                        <summary>Qual o prazo para ver resultados?</summary>
-                        <p>Isso depende do tipo de solução. Recrutamentos geralmente mostram resultados em 2-4 semanas.
-                            Gestão e treinamentos têm impacto mais progressivo, com melhoras visíveis em 30-60 dias.</p>
-                    </details>
-                    <details>
-                        <summary>A consultoria é indicada para pequenas empresas?</summary>
-                        <p>Totalmente. Pequenas empresas se beneficiam muito de processos organizados, planejamento
-                            estratégico e orientação especializada para crescer de forma sustentável.</p>
-                    </details>
-                    <details>
-                        <summary>Como é o acompanhamento após a contratação?</summary>
-                        <p>Oferecemos suporte contínuo com reuniões periódicas, ajustes conforme necessário e
-                            consultoria para garantir que os resultados se mantenham e evoluam.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <section class="section contact-section" id="contato">
-            <div class="container contact-grid">
-                <div class="contact-copy reveal">
-                    <span class="eyebrow">Contato</span>
-                    <h2>Solicite uma proposta em poucos minutos</h2>
-                    <p>Preencha seus dados e nossa equipe entrará em contato com um atendimento estratégico e
-                        direcionado para sua necessidade.</p>
-
-                    <div class="contact-cards">
-                        <a class="contact-card" href="https://wa.me/5511961371183" target="_blank"
-                            rel="noopener noreferrer">
-                            <img src="./assets/icons/whatsapp.svg" alt="" aria-hidden="true" />
-                            <strong>WhatsApp</strong>
-                            <span>Resposta rápida e atendimento consultivo direto.</span>
-                            <span>(11) 96137-1183</span>
-                        </a>
-                        <a class="contact-card" href="mailto:control01@outlook.com.br">
-                            <img src="./assets/icons/email.svg" alt="" aria-hidden="true" />
-                            <strong>E-mail</strong>
-                            <span>Envio de briefing, escopo e alinhamento inicial.</span>
-                            <span>control01@outlook.com.br</span>
-                        </a>
-                        <a class="contact-card" href="https://www.instagram.com/controlconsultoria1" target="_blank"
-                            rel="noopener noreferrer">
-                            <img src="./assets/icons/instagram.svg" alt="" aria-hidden="true" />
-                            <strong>Instagram</strong>
-                            <span>@controlconsultoria1</span>
-                            <span>São Paulo, SP</span>
-                        </a>
-                    </div>
-                </div>
-
-                <form class="contact-form reveal" data-contact-form>
-                    <div class="form-heading">
-                        <h3>Fale com um especialista</h3>
-                        <p>Preencha os campos abaixo para que possamos entender melhor sua necessidade.</p>
-                    </div>
-
-                    <label>
-                        <span>Nome</span>
-                        <input type="text" name="name" autocomplete="name" placeholder="Seu nome completo" required />
-                    </label>
-
-                    <label>
-                        <span>Empresa</span>
-                        <input type="text" name="company" autocomplete="organization" placeholder="Nome da empresa" />
-                    </label>
-
-                    <div class="form-row">
-                        <label>
-                            <span>E-mail</span>
-                            <input type="email" name="email" autocomplete="email" placeholder="voce@empresa.com"
-                                required />
-                        </label>
-                        <label>
-                            <span>WhatsApp</span>
-                            <input type="tel" name="phone" autocomplete="tel" placeholder="(11) 99999-9999" required />
-                        </label>
-                    </div>
-
-                    <label>
-                        <span>Serviço de interesse</span>
-                        <select name="service" required>
-                            <option value="" selected disabled>Selecione uma solução</option>
-                            <option>Recrutamento e Seleção</option>
-                            <option>Treinamento Corporativo</option>
-                            <option>Gestão Empresarial</option>
-                            <option>Consultoria Estratégica</option>
-                            <option>Desenvolvimento Organizacional</option>
-                            <option>Estruturação de Processos</option>
-                            <option>Gestão de Pessoas</option>
-                            <option>Planejamento Estratégico</option>
-                            <option>Suporte Contínuo</option>
-                            <option>Apoio Administrativo</option>
-                        </select>
-                    </label>
-
-                    <label>
-                        <span>Mensagem</span>
-                        <textarea name="message" rows="5"
-                            placeholder="Conte brevemente sua necessidade e prazo desejado." required></textarea>
-                    </label>
-
-                    <button class="button button-primary button-submit" type="submit">Enviar pelo WhatsApp</button>
-                    <a class="button button-secondary button-submit" href="mailto:control01@outlook.com.br">Enviar por
-                        e-mail</a>
-                    <p class="form-note" data-form-feedback>Ao enviar, você concorda em ser contatado pela equipe da
-                        Control.</p>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <a class="footer-logo" href="#topo" aria-label="Voltar ao topo">
-                    <img src="./assets/images/control-consultoria_logo_principal.png"
-                        alt="Control Consultoria Empresarial" />
-                </a>
-                <p>Soluções em recrutamento, treinamento, desenvolvimento, consultoria e gestão empresarial para
-                    negócios que desejam crescer com organização e direção.</p>
-            </div>
-
-            <div>
-                <h3>Links rápidos</h3>
-                <nav class="footer-links" aria-label="Links rápidos do rodapé">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#servicos">Serviços</a>
-                    <a href="#processo">Processo</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#contato">Contato</a>
-                </nav>
-            </div>
-
-            <div>
-                <h3>Contato</h3>
-                <div class="footer-links footer-links-contact">
-                    <a href="mailto:control01@outlook.com.br">control01@outlook.com.br</a>
-                    <a href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                    <a href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/" target="_blank"
-                        rel="noopener noreferrer">LinkedIn</a>
-                </div>
-            </div>
-
-            <div>
-                <h3>Redes sociais</h3>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/controlconsultoria1" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram">
-                        <img src="./assets/icons/instagram.svg" alt="" aria-hidden="true" />
-                    </a>
-                    <a href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn">
-                        <img src="./assets/icons/linkedin.svg" alt="" aria-hidden="true" />
-                    </a>
-                    <a href="https://www.facebook.com/share/1FVU6gsgdW/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Facebook">
-                        <img src="./assets/icons/facebook.svg" alt="" aria-hidden="true" />
-                    </a>
-                </div>
-            </div>
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow eyebrow-light"><span></span> Consultoria empresarial</span>
+          <h1>Conectando pessoas,<br>fortalecendo processos e<br>acelerando resultados.</h1>
+          <p>Unimos estratégia, gestão e desenvolvimento humano para apoiar empresas que buscam mais organização,
+            clareza e evolução.</p>
+          <div class="hero-actions">
+            <a class="button button-green" href="#servicos">Conheça nossas soluções <span
+                aria-hidden="true">→</span></a>
+            <a class="button button-ghost" href="#contato">Fale conosco</a>
+          </div>
+          <ul class="hero-trust" aria-label="Benefícios da consultoria">
+            <li><span aria-hidden="true">✓</span> Soluções sob medida</li>
+            <li><span aria-hidden="true">✓</span> Atendimento consultivo</li>
+            <li><span aria-hidden="true">✓</span> Foco na execução</li>
+          </ul>
         </div>
 
-        <div class="container footer-bottom">
-            <p>© 2026 Control Consultoria Empresarial — Desenvolvido com cuidado por @Giselleandrade1. Todos os direitos
-                reservados.</p>
+        <div class="hero-visual reveal" aria-label="Equipe em planejamento empresarial">
+          <div class="visual-frame">
+            <picture>
+              <source media="(max-width: 700px)" srcset="./assets/images/figura1-inicio-640.webp">
+              <source media="(max-width: 1000px)" srcset="./assets/images/figura1-inicio-768.webp">
+              <img src="./assets/images/figura1-inicio-1280.webp" width="1280" height="853"
+                alt="Equipe de consultoras reunida em torno de um notebook analisando resultados" fetchpriority="high">
+            </picture>
+          </div>
+          <div class="floating-card floating-card-top"><span class="metric-icon" aria-hidden="true">↗</span>
+            <div><small>Direção estratégica</small><strong>Decisões com clareza</strong></div>
+          </div>
+          <div class="floating-card floating-card-bottom"><span class="people-dots"
+              aria-hidden="true"><i></i><i></i><i></i></span>
+            <div><small>Pessoas e processos</small><strong>Na mesma direção</strong></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <a class="floating-whatsapp" href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer"
-        aria-label="Falar no WhatsApp">
-        <img src="./assets/icons/whatsapp.svg" alt="" aria-hidden="true" />
-    </a>
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <div class="about-image"><img src="./assets/images/hero-recrutamento-960.webp" width="960" height="640"
+              loading="eager" decoding="sync" fetchpriority="high"
+              alt="Composição ilustrada sobre seleção, talentos e desenvolvimento profissional"></div>
+          <div class="about-note"><span aria-hidden="true">✓</span>
+            <div><strong>Abordagem consultiva</strong><small>Estratégia conectada à realidade do negócio.</small></div>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">Sobre a Control</span>
+          <h2>Estratégia empresarial com proximidade, método e execução.</h2>
+          <p>A Control Consultoria Empresarial apoia negócios na construção de operações mais eficientes, equipes mais
+            preparadas e decisões mais inteligentes.</p>
+          <p>Unimos análise, método e proximidade para desenvolver soluções personalizadas em recrutamento, treinamento,
+            desenvolvimento e gestão empresarial.</p>
+          <div class="about-highlights">
+            <div><span aria-hidden="true">01</span><strong>Soluções personalizadas</strong><small>Construídas a partir
+                do contexto e dos objetivos de cada empresa.</small></div>
+            <div><span aria-hidden="true">02</span><strong>Visão integrada</strong><small>Pessoas, processos e
+                estratégia tratados como partes do mesmo negócio.</small></div>
+            <div><span aria-hidden="true">03</span><strong>Aplicação prática</strong><small>Direcionamento que se
+                transforma em ações possíveis de acompanhar.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="servicos">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div><span class="eyebrow">Nossas soluções</span>
+            <h2>Soluções empresariais pensadas para cada fase do seu negócio.</h2>
+          </div>
+          <p>Atuação integrada para organizar a gestão, fortalecer equipes e criar uma base mais segura para o
+            crescimento.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal"><span class="service-index">01</span><img
+              src="./assets/icons/management.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Gestão Empresarial</h3>
+            <p>Organização de rotinas, responsabilidades e práticas de gestão para uma operação mais eficiente.</p><a
+              href="#contato" data-service="Gestão Empresarial">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">02</span><img
+              src="./assets/icons/strategy.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Consultoria Estratégica</h3>
+            <p>Análise e direcionamento para apoiar decisões e transformar prioridades em planos viáveis.</p><a
+              href="#contato" data-service="Consultoria Estratégica">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">03</span><img src="./assets/icons/hr.svg"
+              width="44" height="44" alt="" aria-hidden="true">
+            <h3>Gestão de Pessoas</h3>
+            <p>Práticas que apoiam o engajamento, a clareza de papéis e o desenvolvimento de talentos.</p><a
+              href="#contato" data-service="Gestão de Pessoas">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">04</span><img
+              src="./assets/icons/recruitment.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Recrutamento e Seleção</h3>
+            <p>Processos estruturados para aproximar a empresa de profissionais alinhados à função e à cultura.</p><a
+              href="#contato" data-service="Recrutamento e Seleção">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">05</span><img
+              src="./assets/icons/training.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Treinamento e Desenvolvimento</h3>
+            <p>Capacitações desenhadas conforme o perfil da equipe e os desafios reais da organização.</p><a
+              href="#contato" data-service="Treinamento e Desenvolvimento">Saiba mais <span
+                aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">06</span><img
+              src="./assets/icons/planning.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Planejamento Estratégico</h3>
+            <p>Definição de prioridades, objetivos, indicadores e ações para orientar a evolução da empresa.</p><a
+              href="#contato" data-service="Planejamento Estratégico">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">07</span><img
+              src="./assets/icons/process.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Processos Organizacionais</h3>
+            <p>Mapeamento de fluxos e rotinas para reduzir ruídos e dar mais clareza à operação.</p><a href="#contato"
+              data-service="Outro">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal"><span class="service-index">08</span><img
+              src="./assets/icons/development.svg" width="44" height="44" alt="" aria-hidden="true">
+            <h3>Desenvolvimento de Lideranças</h3>
+            <p>Desenvolvimento de competências para liderar equipes com clareza, responsabilidade e direção.</p><a
+              href="#contato" data-service="Treinamento e Desenvolvimento">Saiba mais <span
+                aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <div class="services-more reveal">
+          <p>Também atuamos com desenvolvimento organizacional, estruturação de processos, suporte contínuo e apoio
+            administrativo.</p><a class="text-link" href="#contato">Converse sobre sua necessidade <span
+              aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="blue-band partnership" aria-labelledby="blue-title">
+      <div class="container blue-band-grid reveal">
+        <div><span class="eyebrow eyebrow-light">Parceria consultiva</span>
+          <h2 id="blue-title">Uma parceria para transformar necessidades em avanço real.</h2>
+          <p>Trabalhamos lado a lado com sua empresa para conectar prioridades, desenvolver pessoas e estruturar
+            caminhos possíveis.</p><a class="button button-green" href="#contato">Vamos conversar <span
+              aria-hidden="true">→</span></a>
+        </div>
+        <div class="benefit-grid">
+          <article><span>01</span><strong>Estratégia</strong><small>Direção para decidir.</small></article>
+          <article><span>02</span><strong>Pessoas</strong><small>Equipes mais preparadas.</small></article>
+          <article><span>03</span><strong>Processos</strong><small>Rotinas mais claras.</small></article>
+          <article><span>04</span><strong>Resultados</strong><small>Evolução acompanhada.</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diferenciais">
+      <div class="container differences-grid">
+        <div class="differences-intro reveal"><span class="eyebrow">Soluções sob medida</span>
+          <h2>Encontramos o melhor caminho para a realidade da sua empresa.</h2>
+          <p>O ponto de partida é sempre o contexto real do negócio. A partir dele, organizamos um plano coerente,
+            aplicável e acompanhado.</p>
+          <ul class="check-list">
+            <li>Diagnóstico personalizado</li>
+            <li>Estratégias sob medida</li>
+            <li>Implantação estruturada</li>
+            <li>Acompanhamento próximo</li>
+          </ul>
+        </div>
+        <div class="path-visual reveal" aria-hidden="true"><span class="path-circle"></span><span
+            class="path-accent"></span>
+          <article><img src="./assets/icons/strategy.svg" width="36" height="36" alt=""><small>Direcionamento
+              estratégico</small><strong>Um caminho construído para o seu negócio.</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="horizontal-cta" aria-label="Convite para contato">
+      <div class="container"><strong>Pronta para organizar, desenvolver e fortalecer sua empresa?</strong><a
+          class="button button-light" href="#contato">Fale com a Control <span aria-hidden="true">→</span></a></div>
+    </aside>
+
+    <section class="section section-soft process" id="processo">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div><span class="eyebrow">Como trabalhamos</span>
+            <h2>Um processo simples, transparente e orientado a resultados.</h2>
+          </div>
+          <p>Uma jornada consultiva clara e adaptável à realidade de cada organização.</p>
+        </div>
+        <ol class="process-grid">
+          <li class="process-step reveal"><span>01</span>
+            <div class="process-icon"><img src="./assets/icons/service.svg" width="32" height="32" alt=""
+                aria-hidden="true"></div>
+            <h3>Diagnóstico</h3>
+            <p>Entendemos o cenário atual, as necessidades e os objetivos da empresa.</p>
+          </li>
+          <li class="process-step reveal"><span>02</span>
+            <div class="process-icon"><img src="./assets/icons/planning.svg" width="32" height="32" alt=""
+                aria-hidden="true"></div>
+            <h3>Planejamento</h3>
+            <p>Definimos prioridades, estratégias, responsáveis e indicadores.</p>
+          </li>
+          <li class="process-step reveal"><span>03</span>
+            <div class="process-icon"><img src="./assets/icons/development.svg" width="32" height="32" alt=""
+                aria-hidden="true"></div>
+            <h3>Implementação</h3>
+            <p>Transformamos o direcionamento em ações possíveis de executar.</p>
+          </li>
+          <li class="process-step reveal"><span>04</span>
+            <div class="process-icon"><img src="./assets/icons/growth.svg" width="32" height="32" alt=""
+                aria-hidden="true"></div>
+            <h3>Acompanhamento</h3>
+            <p>Observamos avanços, ajustamos a estratégia e apoiamos a continuidade.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section values" aria-labelledby="values-title">
+      <div class="container">
+        <div class="values-heading centered reveal"><span class="eyebrow">Essência da Control</span>
+          <h2 id="values-title">O que orienta cada projeto da Control.</h2>
+        </div>
+        <div class="values-grid">
+          <article class="value-card reveal"><span aria-hidden="true">M</span>
+            <h3>Missão</h3>
+            <p>Ajudar empresas a evoluir por meio de pessoas, processos e estratégia inteligente.</p>
+          </article>
+          <article class="value-card featured reveal"><span aria-hidden="true">V</span>
+            <h3>Visão</h3>
+            <p>Ser referência em consultoria empresarial personalizada e soluções de gestão.</p>
+          </article>
+          <article class="value-card reveal"><span aria-hidden="true">+</span>
+            <h3>Valores</h3>
+            <p>Ética, parceria, eficiência, inovação, clareza e compromisso com resultados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft contact-faq" id="contato">
+      <div class="container contact-faq-grid">
+        <form class="contact-form contact-card-form reveal" data-contact-form novalidate>
+          <div class="form-head"><span>Vamos conversar?</span>
+            <h2>Conte o que sua empresa precisa.</h2>
+            <p>Os campos marcados com * são obrigatórios.</p>
+          </div>
+          <div class="form-grid"><label>Nome *<input type="text" name="name" autocomplete="name"
+                required></label><label>Empresa<input type="text" name="company"
+                autocomplete="organization"></label><label>E-mail *<input type="email" name="email" autocomplete="email"
+                required></label><label>Telefone / WhatsApp *<input type="tel" name="phone" autocomplete="tel"
+                inputmode="tel" required minlength="8"></label></div>
+          <label>Serviço de interesse *<select name="service" required>
+              <option value="">Selecione uma opção</option>
+              <option>Gestão Empresarial</option>
+              <option>Consultoria Estratégica</option>
+              <option>Gestão de Pessoas</option>
+              <option>Recrutamento e Seleção</option>
+              <option>Treinamento e Desenvolvimento</option>
+              <option>Planejamento Estratégico</option>
+              <option>Outro</option>
+            </select></label>
+          <label>Mensagem *<textarea name="message" rows="4" required
+              placeholder="Conte brevemente o desafio da sua empresa."></textarea></label>
+          <button class="button button-green" type="submit">Enviar pelo WhatsApp <span
+              aria-hidden="true">→</span></button>
+          <p class="form-feedback" data-form-feedback aria-live="polite">Ao enviar, sua mensagem será preparada no
+            WhatsApp.</p>
+        </form>
+        <div class="faq-column reveal" id="faq"><span class="eyebrow">Dúvidas frequentes</span>
+          <h2>Respostas claras antes de começar.</h2>
+          <p>Informações sobre o atendimento e a forma de trabalho da Control.</p>
+          <div class="accordion" data-accordion>
+            <div class="accordion-item">
+              <h3><button type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">Como iniciar o
+                  atendimento?<span aria-hidden="true"></span></button></h3>
+              <div class="accordion-panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <div>
+                  <p>Entre em contato pelo WhatsApp ou pelo formulário. A conversa inicial ajuda a compreender o cenário
+                    e identificar a solução mais adequada.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3><button type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Quais empresas podem
+                  contratar a Control?<span aria-hidden="true"></span></button></h3>
+              <div class="accordion-panel" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+                <div>
+                  <p>Empresas de diferentes segmentos e portes que buscam aprimorar sua gestão, equipe, processos ou
+                    planejamento.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3><button type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Os treinamentos são
+                  personalizados?<span aria-hidden="true"></span></button></h3>
+              <div class="accordion-panel" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+                <div>
+                  <p>Sim. O conteúdo e a abordagem são definidos conforme o perfil da equipe, os desafios do negócio e
+                    os objetivos estabelecidos.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3><button type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Como funciona o
+                  acompanhamento?<span aria-hidden="true"></span></button></h3>
+              <div class="accordion-panel" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+                <div>
+                  <p>A dinâmica depende da solução contratada e pode incluir alinhamentos periódicos e ajustes de
+                    direcionamento.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3><button type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">A consultoria atende
+                  pequenas empresas?<span aria-hidden="true"></span></button></h3>
+              <div class="accordion-panel" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+                <div>
+                  <p>Sim. O escopo é definido conforme a estrutura, as prioridades e o momento de cada empresa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="direct-contact"><a href="https://wa.me/5511961371183" target="_blank"
+              rel="noopener noreferrer">WhatsApp · (11) 96137-1183</a><a
+              href="mailto:control01@outlook.com.br">control01@outlook.com.br</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="indicator-band" aria-label="Pilares de atendimento">
+      <div class="container">
+        <div><strong>Estratégia</strong><span>direção para decidir</span></div>
+        <div><strong>Pessoas</strong><span>desenvolvimento contínuo</span></div>
+        <div><strong>Processos</strong><span>organização para evoluir</span></div>
+        <div><strong>São Paulo</strong><span>atendimento empresarial</span></div>
+      </div>
+    </section>
+
+    <section class="section insights" id="conteudos">
+      <div class="container">
+        <div class="content-heading reveal">
+          <div><span class="eyebrow">Conteúdo para sua empresa</span>
+            <h2>Temas que ajudam empresas a tomar melhores decisões.</h2>
+          </div><a class="text-link" href="#contato">Ver todos os conteúdos <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="insights-grid">
+          <article class="insight-card reveal">
+            <figure class="insight-cover"><img src="./assets/images/figura1-inicio-640.webp" width="960" height="540"
+                loading="lazy" alt="Equipe de consultoria analisando prioridades empresariais"><span>Estratégia</span>
+            </figure>
+            <div><small>Para refletir</small>
+              <h3>Como transformar prioridades em um plano mais claro</h3>
+              <p>Pontos importantes para conectar objetivos, responsáveis e execução.</p><a href="#contato">Saiba mais
+                <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="insight-card reveal">
+            <figure class="insight-cover"><img src="./assets/images/hero-recrutamento-960.webp" width="960" height="540"
+                loading="lazy" alt="Composição ilustrada sobre talentos, liderança e seleção"><span>Pessoas</span>
+            </figure>
+            <div><small>Para refletir</small>
+              <h3>O papel da liderança no desenvolvimento das equipes</h3>
+              <p>Clareza, acompanhamento e comunicação como práticas de gestão.</p><a href="#contato">Saiba mais <span
+                  aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="insight-card reveal">
+            <figure class="insight-cover insight-cover-logo"><img
+                src="./assets/images/control-consultoria-logo-640.webp" width="960" height="540" loading="lazy"
+                alt="Marca da Control Consultoria"><span>Processos</span></figure>
+            <div><small>Para refletir</small>
+              <h3>Processos simples também podem gerar consistência</h3>
+              <p>Como rotinas bem definidas apoiam decisões e reduzem ruídos.</p><a href="#contato">Saiba mais <span
+                  aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <picture class="brand-logo brand-logo-light">
+          <img src="./assets/images/control-consultoria_logo_principal.png" width="240" height="160" loading="lazy"
+            alt="Control Consultoria — Gestão Empresarial">
+        </picture>
+        <picture class="brand-logo brand-logo-dark">
+          <img src="./assets/images/control-consultoria-logo-640.webp" width="240" height="160" loading="lazy"
+            alt="Control Consultoria — Gestão Empresarial">
+        </picture>
+        <p>Estratégia, pessoas e processos para empresas que desejam crescer com organização e direção.</p>
+        <div class="social-links"><a href="https://www.instagram.com/controlconsultoria1" target="_blank"
+            rel="noopener noreferrer" aria-label="Control Consultoria no Instagram"><img
+              src="./assets/icons/instagram.svg" width="20" height="20" alt="" aria-hidden="true"></a><a
+            href="https://www.linkedin.com/company/control-c-gerenciamento-empresarial-ltda/" target="_blank"
+            rel="noopener noreferrer" aria-label="Control Consultoria no LinkedIn"><img
+              src="./assets/icons/linkedin.svg" width="20" height="20" alt="" aria-hidden="true"></a><a
+            href="https://www.facebook.com/share/1FVU6gsgdW/" target="_blank" rel="noopener noreferrer"
+            aria-label="Control Consultoria no Facebook"><img src="./assets/icons/facebook.svg" width="20" height="20"
+              alt="" aria-hidden="true"></a></div>
+      </div>
+      <div class="footer-column">
+        <h2>Empresa</h2><a href="#sobre">Sobre a Control</a><a href="#diferenciais">Diferenciais</a><a
+          href="#processo">Como trabalhamos</a>
+      </div>
+      <div class="footer-column">
+        <h2>Soluções</h2><a href="#servicos">Gestão empresarial</a><a href="#servicos">Gestão de pessoas</a><a
+          href="#servicos">Recrutamento e seleção</a><a href="#servicos">Planejamento estratégico</a>
+      </div>
+      <div class="footer-column">
+        <h2>Atendimento</h2><a href="#faq">Dúvidas frequentes</a><a href="#contato">Solicitar consultoria</a><a
+          href="mailto:control01@outlook.com.br">control01@outlook.com.br</a><a href="https://wa.me/5511961371183"
+          target="_blank" rel="noopener noreferrer">(11) 96137-1183</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-current-year></span> Control Consultoria Empresarial. Todos os direitos reservados.</p><a
+        href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/5511961371183" target="_blank" rel="noopener noreferrer"
+    aria-label="Falar com a Control pelo WhatsApp"><img src="./assets/icons/whatsapp.svg" width="26" height="26" alt=""
+      aria-hidden="true"></a>
 </body>
 
 </html>
