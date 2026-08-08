@@ -17,11 +17,6 @@
   const WHATSAPP_NUMBER = "5511961371183";
   let lastFocusedElement = null;
 
-  const icons = {
-    sun: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
-    moon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.8 15.2A8.6 8.6 0 0 1 8.8 3.1 9 9 0 1 0 20.8 15.2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
-  };
-
   const readStoredTheme = () => {
     try {
       const stored = localStorage.getItem(THEME_KEY);
@@ -34,7 +29,10 @@
   const setTheme = (theme, persist = false) => {
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
-    if (themeIcon) themeIcon.innerHTML = theme === "dark" ? icons.sun : icons.moon;
+    if (themeIcon) {
+      themeIcon.className = `ui-icon ${theme === "dark" ? "ui-icon-sun" : "ui-icon-moon"}`;
+      themeIcon.setAttribute("aria-hidden", "true");
+    }
     if (themeToggle) themeToggle.setAttribute("aria-label", theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro");
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#14132f" : "#f8fafc");
     if (persist) {
@@ -66,6 +64,7 @@
     menu.setAttribute("aria-hidden", "false");
     menuToggle.setAttribute("aria-expanded", "true");
     menuToggle.setAttribute("aria-label", "Fechar menu");
+    menuToggle.querySelector("[data-menu-icon]")?.classList.replace("ui-icon-menu", "ui-icon-close");
     body.classList.add("menu-open");
     window.requestAnimationFrame(() => focusableInMenu()[0]?.focus());
   };
@@ -76,6 +75,7 @@
     menu.setAttribute("aria-hidden", "true");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Abrir menu");
+    menuToggle.querySelector("[data-menu-icon]")?.classList.replace("ui-icon-close", "ui-icon-menu");
     body.classList.remove("menu-open");
     if (restoreFocus && lastFocusedElement instanceof HTMLElement) lastFocusedElement.focus();
   };
