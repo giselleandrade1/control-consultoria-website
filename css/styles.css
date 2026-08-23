@@ -950,11 +950,22 @@ html[data-theme="dark"] .language-switcher button[aria-pressed="true"] {
 }
 
 .hero-image-caption {
-  width: min(100%, 42rem);
+  position: absolute;
+  z-index: 2;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-5);
+  width: auto;
   display: flex;
   align-items: center;
   gap: .75rem;
-  padding: var(--space-3) 0 0;
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  text-align: left;
 }
 
 .hero-image-caption small,
