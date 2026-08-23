@@ -1,150 +1,68 @@
-# Control Consultoria Empresarial - Website
+# Control Consultoria Empresarial
 
-Website profissional, responsivo e premium para Control Consultoria Empresarial.
+Website institucional estático, responsivo e sem dependências externas, desenvolvido em HTML, CSS e JavaScript.
 
-## 🎯 Características Principais
+## Executar localmente
 
-- **Design Premium**: Paleta moderna com Branco, Azul escuro, Verde e Cinza
-- **Totalmente Responsivo**: Funciona perfeitamente em 320px até 1920px
-- **Tema Claro/Escuro**: Alternância de tema com persistência
-- **100% Acessível**: WCAG AA, ARIA labels, navegação por teclado
-- **SEO Otimizado**: Schema.org, Open Graph, Meta tags
-- **Performance**: Nenhuma dependência externa, ~60KB total
-- **Puro HTML/CSS/JS**: Sem frameworks, sem bibliotecas
-
-## 📱 Responsividade
-
-Testado e otimizado para:
-- 320px (Mobile pequeno)
-- 375px (iPhone)
-- 480px (Mobile grande)
-- 768px (Tablet)
-- 1024px (Tablet grande)
-- 1366px (Desktop)
-- 1440px (Desktop full)
-- 1920px (Ultra-wide)
-
-## 🎨 Paleta de Cores
-
-- **Primário**: Verde #7ED957
-- **Secundário**: Azul #393874
-- **Fundo**: Branco #FFFFFF
-- **Texto**: Azul escuro #06132B
-- **Muted**: Cinza #667085
-
-## 📂 Estrutura de Arquivos
-
-```
-controlconsultoria-website/
-├── index.html              # Página principal
-├── styles/                 # Estilos compilados
-│   └── styles.css          # Estilos responsivos
-├── scripts/                # Scripts
-│   └── main.js             # Funcionalidades JS
-├── images/
-│   ├── control-consultoria_logo_principal.png    # Logo principal
-│   ├── figura1-inicio.png    # Hero imagem de início
-│   ├── hero-recrutamento.png # Imagem recrutamento
-│   └── service.svg           # SVG serviços section
-├── REVISAO_COMPLETA.md     # Documentação completa
-└── README.md               # Este arquivo
+```bash
+npm run dev
 ```
 
-## 🚀 Como Usar
+Depois, acesse `http://127.0.0.1:4173/`.
 
-1. Abra `index.html` em qualquer navegador moderno
-2. Nenhuma instalação ou dependência necessária
-3. Funciona offline completamente
+## Estrutura
 
-## ✨ Funcionalidades
+```text
+control-consultoria-website/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── assets/
+    ├── icons/
+    └── images/
+```
 
-### Menu Mobile
-- Hamburger menu responsivo
-- Fecha ao clicar em links
-- Fecha com ESC
+## Recursos principais
 
-### Tema
-- Toggle claro/escuro no header
-- Sincroniza com preferência de sistema
-- Salva preferência em localStorage
+- Tema claro e escuro com persistência da preferência.
+- Menu móvel modal com foco contido, fechamento por `Escape` e navegação por teclado.
+- Formulário validado por campo e integração com WhatsApp.
+- FAQ em accordion acessível.
+- Sistema tipográfico e de espaçamento baseado em variáveis CSS e `clamp()`.
+- Grids fluidos, containers limitados e áreas de toque de pelo menos 44 px.
+- Textos corridos com leitura natural, hifenização em português e largura de leitura limitada.
+- Imagens WebP responsivas, dimensões explícitas e carregamento adiado fora do conteúdo principal.
+- Sem fontes, bibliotecas ou recursos carregados de domínios externos.
 
-### Formulário
-- Validação de campos
-- Envia para WhatsApp formatado
-- Campos de: Nome, Empresa, Email, WhatsApp, Serviço, Mensagem
+## Responsividade validada
 
-### FAQ
-- Accordion funcional
-- Abre/fecha com detalhe HTML nativo
-- Perguntas pré-respondidas
+O layout foi verificado em Chrome nas larguras de 320, 375, 390, 425, 480, 560, 561, 576, 768, 820, 821, 1024, 1100, 1101, 1280, 1366, 1440, 1600, 1920 e 2560 px.
 
-### Animações
-- Scroll reveal suave
-- Contadores animados de métricas
-- Transições de hover
-- Sem comprometer performance
+Nos testes finais:
 
-### Acessibilidade
-- ARIA labels em botões
-- Labels associados a inputs
-- Skip link para conteúdo principal
-- Navegação por teclado completa
-- Contraste WCAG AA
+- não houve overflow horizontal;
+- o `h1` permaneceu compacto e os `h2` em até três linhas;
+- imagens e recursos locais carregaram sem erros;
+- os temas claro e escuro mantiveram contraste e proporção consistentes;
+- o layout não apresentou deslocamento visual acumulado (`CLS = 0`) no ensaio local.
 
-## 🔍 SEO
+## Acessibilidade
 
-Implementado:
-- Title e Meta Description
-- Open Graph tags
-- Twitter Card
-- Schema.org (ProfessionalService)
-- Headings hierárquicos
-- Links semânticos
-- Alt text em imagens
-- Sitemap readiness
+- HTML em português do Brasil e landmarks semânticos.
+- Hierarquia contínua de headings e um único `h1`.
+- Skip link, `focus-visible` e suporte a `prefers-reduced-motion`.
+- Labels, mensagens de erro associadas e estados ARIA no formulário.
+- Links repetidos com nomes acessíveis contextuais.
+- Contraste mínimo verificado para textos, bordas de campos e indicadores de foco.
+- Conteúdo permanece visível caso o JavaScript não seja executado.
 
-## 📊 Performance
-
-- HTML: 31.4 KB
-- CSS: 22.2 KB
-- JavaScript: 8.3 KB
-- **Total: ~62 KB**
-
-Nenhuma imagem pesada, SVG otimizados, CSS minificável.
-
-## 🌍 Compatibilidade
-
-- Chrome/Edge ✅
-- Firefox ✅
-- Safari ✅
-- Mobile browsers ✅
-- IE11 (parcial - foco é navegadores modernos)
-
-## 📞 Contato
+## Contato
 
 - WhatsApp: (11) 96137-1183
-- Email: control01@outlook.com.br
+- E-mail: control01@outlook.com.br
 - Instagram: @controlconsultoria1
 - LinkedIn: control-c-gerenciamento-empresarial-ltda
 
-## 👨‍💻 Desenvolvedor
-
-Desenvolvido com ❤️ por [@Giselleandrade1](https://github.com/giselleandrade1)
-
-© 2026 Control Consultoria Empresarial - Todos os direitos reservados.
-
-## 📝 Changelog
-
-### v2.0 (Revisão Completa)
-- ✅ HTML totalmente semântico
-- ✅ CSS responsivo e otimizado
-- ✅ JavaScript puro e funcional
-- ✅ 12 seções principais
-- ✅ Tema claro/escuro
-- ✅ Acessibilidade WCAG AA
-- ✅ SEO otimizado
-- ✅ Testado em 8 resoluções
-
----
-
-**Status**: Pronto para produção ✅
+Desenvolvido por [@Giselleandrade1](https://github.com/giselleandrade1).
