@@ -1046,6 +1046,10 @@ html[data-theme="dark"] .language-switcher button[aria-pressed="true"] {
   margin-inline: 0;
 }
 
+.about-copy .about-visual {
+  margin-block: var(--space-6);
+}
+
 .about-image {
   width: 100%;
   aspect-ratio: 16 / 9;
