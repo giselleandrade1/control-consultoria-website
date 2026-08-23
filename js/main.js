@@ -3,19 +3,32 @@
 
   const root = document.documentElement;
   const body = document.body;
+  root.classList.add("js");
   const header = document.querySelector("[data-header]");
   const themeToggle = document.querySelector("[data-theme-toggle]");
   const themeIcon = document.querySelector("[data-theme-icon]");
   const menu = document.querySelector("[data-mobile-menu]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const menuCloseButtons = document.querySelectorAll("[data-menu-close]");
+  const languageButtons = document.querySelectorAll("[data-language-option]");
+  const languageSwitchers = document.querySelectorAll("[data-language-switcher]");
   const form = document.querySelector("[data-contact-form]");
   const feedback = document.querySelector("[data-form-feedback]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
   const THEME_KEY = "control-theme";
+  const LANGUAGE_KEY = "control-language";
   const WHATSAPP_NUMBER = "5511961371183";
+  const I18N = window.CONTROL_I18N || {};
+  const defaultLanguage = I18N.defaultLanguage || "pt-BR";
+  const translatableAttributes = ["aria-label", "alt", "placeholder", "content"];
+  const textNodeSources = new WeakMap();
+  const attributeSources = new WeakMap();
+  const translatedTextNodes = [];
   let lastFocusedElement = null;
+  let currentLanguage = defaultLanguage;
+  const backgroundElements = menu ? [...body.children].filter((element) => element !== menu) : [];
+  const accordionTimers = new WeakMap();
 
   const readStoredTheme = () => {
     try {
@@ -26,6 +39,126 @@
     }
   };
 
+  const normalizeLanguage = (language) => {
+    const aliases = I18N.aliases || {};
+    const normalized = aliases[String(language || "").toLowerCase()];
+    return normalized && I18N.languages?.[normalized] ? normalized : null;
+  };
+
+  const readStoredLanguage = () => {
+    try { return normalizeLanguage(localStorage.getItem(LANGUAGE_KEY)); }
+    catch { return null; }
+  };
+
+  const getLanguageUI = () => I18N.ui?.[currentLanguage] || I18N.ui?.[defaultLanguage] || {};
+
+  const translateFrom = (table, source, language = currentLanguage) => {
+    if (!source || language === defaultLanguage) return source;
+    const languageKey = language === "pt-BR" ? "pt-BR" : language;
+    return I18N[table]?.[source]?.[languageKey] || source;
+  };
+
+  const collectTextNodes = () => {
+    if (translatedTextNodes.length) return;
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const source = node.nodeValue;
+        if (!source || !source.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent || parent.closest("script, style, noscript")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const source = node.nodeValue;
+      const leading = source.match(/^\s*/)?.[0] || "";
+      const trailing = source.match(/\s*$/)?.[0] || "";
+      const key = source.trim().replace(/\s+/g, " ");
+      textNodeSources.set(node, { key, leading, trailing });
+      translatedTextNodes.push(node);
+    }
+  };
+
+  const collectAttributeSources = () => {
+    const selector = translatableAttributes.map((attribute) => `[${attribute}]`).join(",");
+    document.querySelectorAll(selector).forEach((element) => {
+      const sources = attributeSources.get(element) || {};
+      translatableAttributes.forEach((attribute) => {
+        if (element.hasAttribute(attribute) && !sources[attribute]) sources[attribute] = element.getAttribute(attribute);
+      });
+      attributeSources.set(element, sources);
+    });
+  };
+
+  const updateMetaLanguage = (language) => {
+    const meta = I18N.meta?.[language] || I18N.meta?.[defaultLanguage];
+    if (!meta) return;
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute("content", meta.locale);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.ogTitle);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.ogDescription);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", meta.twitterTitle);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", meta.twitterDescription);
+  };
+
+  const syncThemeToggleLabel = () => {
+    if (!themeToggle) return;
+    const ui = getLanguageUI();
+    themeToggle.setAttribute("aria-label", root.dataset.theme === "dark"
+      ? ui.themeLight || "Ativar tema claro"
+      : ui.themeDark || "Ativar tema escuro");
+  };
+
+  const syncMenuToggleLabel = (isOpen = menu?.classList.contains("is-open")) => {
+    if (!menuToggle) return;
+    const ui = getLanguageUI();
+    menuToggle.setAttribute("aria-label", isOpen ? ui.menuClose || "Fechar menu" : ui.menuOpen || "Abrir menu");
+  };
+
+  const syncLanguageControls = () => {
+    const ui = getLanguageUI();
+    languageSwitchers.forEach((switcher) => switcher.setAttribute("aria-label", ui.selectLanguage || "Selecionar idioma"));
+    languageButtons.forEach((button) => {
+      const language = normalizeLanguage(button.dataset.languageOption);
+      const isSelected = language === currentLanguage;
+      const label = I18N.languages?.[language]?.label || button.textContent.trim();
+      button.setAttribute("aria-pressed", String(isSelected));
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    });
+  };
+
+  const setLanguage = (language, persist = false) => {
+    const normalizedLanguage = normalizeLanguage(language) || defaultLanguage;
+    currentLanguage = normalizedLanguage;
+    root.lang = normalizedLanguage;
+    root.dataset.lang = normalizedLanguage;
+    collectTextNodes();
+    collectAttributeSources();
+    updateMetaLanguage(normalizedLanguage);
+    translatedTextNodes.forEach((node) => {
+      const source = textNodeSources.get(node);
+      if (!source) return;
+      node.nodeValue = `${source.leading}${translateFrom("text", source.key, normalizedLanguage)}${source.trailing}`;
+    });
+    document.querySelectorAll(translatableAttributes.map((attribute) => `[${attribute}]`).join(",")).forEach((element) => {
+      const sources = attributeSources.get(element);
+      if (!sources) return;
+      translatableAttributes.forEach((attribute) => {
+        if (sources[attribute]) element.setAttribute(attribute, translateFrom("attributes", sources[attribute], normalizedLanguage));
+      });
+    });
+    syncLanguageControls();
+    syncThemeToggleLabel();
+    syncMenuToggleLabel();
+    if (persist) {
+      try { localStorage.setItem(LANGUAGE_KEY, normalizedLanguage); } catch { /* Storage may be unavailable. */ }
+    }
+    document.dispatchEvent(new CustomEvent("control:languagechange", { detail: { language: normalizedLanguage } }));
+  };
+
   const setTheme = (theme, persist = false) => {
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
@@ -33,18 +166,25 @@
       themeIcon.className = `ui-icon ${theme === "dark" ? "ui-icon-sun" : "ui-icon-moon"}`;
       themeIcon.setAttribute("aria-hidden", "true");
     }
-    if (themeToggle) themeToggle.setAttribute("aria-label", theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro");
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#14132f" : "#f8fafc");
+    syncThemeToggleLabel();
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0f1117" : "#f6f8fc");
     if (persist) {
       try { localStorage.setItem(THEME_KEY, theme); } catch { /* Storage may be unavailable. */ }
     }
   };
 
   const savedTheme = readStoredTheme();
+  const savedLanguage = readStoredLanguage();
+  const browserLanguage = normalizeLanguage(navigator.language);
   setTheme(savedTheme || (systemTheme.matches ? "dark" : "light"));
+  setLanguage(savedLanguage || browserLanguage || defaultLanguage);
 
   themeToggle?.addEventListener("click", () => {
     setTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+  });
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.languageOption, true));
   });
 
   systemTheme.addEventListener("change", (event) => {
@@ -55,34 +195,70 @@
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  const focusableInMenu = () => menu ? [...menu.querySelectorAll('a[href], button:not([disabled])')].filter((element) => element.offsetParent !== null) : [];
+  const focusableInMenu = () => menu
+    ? [...menu.querySelectorAll('.mobile-panel a[href], .mobile-panel button:not([disabled])')]
+      .filter((element) => element.offsetParent !== null)
+    : [];
+
+  const setBackgroundInert = (isInert) => {
+    backgroundElements.forEach((element) => { element.inert = isInert; });
+  };
+
+  const focusDestination = (destination) => {
+    if (!(destination instanceof HTMLElement)) return false;
+    const focusTarget = destination.matches("h1, h2, h3")
+      ? destination
+      : destination.querySelector("h1, h2, h3") || destination;
+    const hadTabIndex = focusTarget.hasAttribute("tabindex");
+    if (!hadTabIndex) focusTarget.setAttribute("tabindex", "-1");
+    focusTarget.focus({ preventScroll: true });
+    if (!hadTabIndex) {
+      focusTarget.addEventListener("blur", () => focusTarget.removeAttribute("tabindex"), { once: true });
+    }
+    return true;
+  };
 
   const openMenu = () => {
     if (!menu || !menuToggle) return;
     lastFocusedElement = document.activeElement;
-    menu.classList.add("is-open");
     menu.setAttribute("aria-hidden", "false");
+    menu.classList.add("is-open");
     menuToggle.setAttribute("aria-expanded", "true");
-    menuToggle.setAttribute("aria-label", "Fechar menu");
+    syncMenuToggleLabel(true);
     menuToggle.querySelector("[data-menu-icon]")?.classList.replace("ui-icon-menu", "ui-icon-close");
     body.classList.add("menu-open");
-    window.requestAnimationFrame(() => focusableInMenu()[0]?.focus());
+    setBackgroundInert(true);
+    window.requestAnimationFrame(() => menu.querySelector(".mobile-panel [data-menu-close]")?.focus());
   };
 
-  const closeMenu = (restoreFocus = true) => {
+  const closeMenu = ({ restoreFocus = true, destination = null } = {}) => {
     if (!menu || !menuToggle || !menu.classList.contains("is-open")) return;
-    menu.classList.remove("is-open");
-    menu.setAttribute("aria-hidden", "true");
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menu");
+    syncMenuToggleLabel(false);
     menuToggle.querySelector("[data-menu-icon]")?.classList.replace("ui-icon-close", "ui-icon-menu");
     body.classList.remove("menu-open");
-    if (restoreFocus && lastFocusedElement instanceof HTMLElement) lastFocusedElement.focus();
+    setBackgroundInert(false);
+    if (!focusDestination(destination) && restoreFocus && lastFocusedElement instanceof HTMLElement) {
+      const fallback = lastFocusedElement.offsetParent !== null
+        ? lastFocusedElement
+        : document.querySelector(".site-header .brand");
+      fallback?.focus();
+    }
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
   };
 
   menuToggle?.addEventListener("click", () => menu?.classList.contains("is-open") ? closeMenu() : openMenu());
   menuCloseButtons.forEach((button) => button.addEventListener("click", () => closeMenu()));
-  menu?.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener("click", () => closeMenu(false)));
+  menu?.querySelectorAll('.mobile-panel a[href]').forEach((link) => link.addEventListener("click", (event) => {
+    const destination = link.hash ? document.querySelector(link.hash) : null;
+    if (destination) {
+      event.preventDefault();
+      window.history.pushState(null, "", link.hash);
+    }
+    closeMenu({ restoreFocus: !destination, destination });
+    destination?.scrollIntoView({ block: "start" });
+  }));
 
   document.addEventListener("keydown", (event) => {
     if (!menu?.classList.contains("is-open")) return;
@@ -96,7 +272,7 @@
   });
 
   window.matchMedia("(min-width: 1101px)").addEventListener("change", (event) => {
-    if (event.matches) closeMenu(false);
+    if (event.matches) closeMenu();
   });
 
   document.querySelectorAll("[data-accordion] button").forEach((button) => {
@@ -110,13 +286,20 @@
       const isOpen = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!isOpen));
       if (!panel) return;
+      window.clearTimeout(accordionTimers.get(panel));
       if (!isOpen) {
         panel.hidden = false;
-        requestAnimationFrame(() => panel.classList.add("is-open"));
+        requestAnimationFrame(() => {
+          if (button.getAttribute("aria-expanded") === "true") panel.classList.add("is-open");
+        });
       } else {
         panel.classList.remove("is-open");
-        const finish = () => { panel.hidden = true; panel.removeEventListener("transitionend", finish); };
-        if (reduceMotion.matches) finish(); else panel.addEventListener("transitionend", finish);
+        const finish = () => {
+          if (button.getAttribute("aria-expanded") === "false") panel.hidden = true;
+          accordionTimers.delete(panel);
+        };
+        if (reduceMotion.matches) finish();
+        else accordionTimers.set(panel, window.setTimeout(finish, 300));
       }
     });
   });
@@ -165,42 +348,77 @@
     if (!feedback) return;
     feedback.textContent = message;
     feedback.classList.toggle("is-error", isError);
+    feedback.setAttribute("role", isError ? "alert" : "status");
+    feedback.setAttribute("aria-live", isError ? "assertive" : "polite");
   };
 
-  form?.addEventListener("input", (event) => {
-    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement) {
-      event.target.removeAttribute("aria-invalid");
-    }
-  });
+  const isValidPhone = (value) => {
+    const digits = String(value || "").replace(/\D/g, "");
+    return digits.length >= 10 && digits.length <= 13;
+  };
+
+  const getFieldError = (field) => {
+    const ui = getLanguageUI();
+    if (field.validity.valueMissing) return ui.required || "Este campo é obrigatório.";
+    if (field.validity.typeMismatch && field.name === "email") return ui.invalidEmail || "Informe um endereço de e-mail válido.";
+    if (field.name === "phone" && !isValidPhone(field.value)) return ui.invalidPhone || "Informe um telefone ou WhatsApp válido.";
+    return ui.required || "Este campo é obrigatório.";
+  };
+
+  const validateField = (field) => {
+    const error = form?.querySelector(`[data-error-for="${field.name}"]`);
+    const isValid = field.checkValidity() && (field.name !== "phone" || isValidPhone(field.value));
+    if (isValid) field.removeAttribute("aria-invalid");
+    else field.setAttribute("aria-invalid", "true");
+    if (error) error.textContent = isValid ? "" : getFieldError(field);
+    return isValid;
+  };
+
+  const updateInvalidField = (event) => {
+    const field = event.target;
+    if ((field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement)
+      && field.hasAttribute("aria-invalid")) validateField(field);
+  };
+
+  form?.addEventListener("input", updateInvalidField);
+  form?.addEventListener("change", updateInvalidField);
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
-    const invalidFields = [...form.elements].filter((field) => field instanceof HTMLElement && "checkValidity" in field && !field.checkValidity());
-    form.querySelectorAll("[aria-invalid]").forEach((field) => field.removeAttribute("aria-invalid"));
+    const requiredFields = [...form.querySelectorAll("[required]")];
+    const invalidFields = requiredFields.filter((field) => !validateField(field));
     if (invalidFields.length) {
-      invalidFields.forEach((field) => field.setAttribute("aria-invalid", "true"));
+      const ui = getLanguageUI();
       invalidFields[0].focus();
-      showFormFeedback("Revise os campos obrigatórios antes de enviar.", true);
+      showFormFeedback(ui.prepareError || "Não foi possível preparar sua mensagem. Verifique os campos e tente novamente.", true);
       return;
     }
 
     const data = new FormData(form);
+    const ui = getLanguageUI();
+    const getValue = (name) => String(data.get(name) || "").trim();
     const lines = [
-      "Olá, gostaria de conversar com a Control Consultoria.",
-      `Nome: ${String(data.get("name")).trim()}`,
-      String(data.get("company") || "").trim() ? `Empresa: ${String(data.get("company")).trim()}` : null,
-      `E-mail: ${String(data.get("email")).trim()}`,
-      `Telefone: ${String(data.get("phone")).trim()}`,
-      `Serviço de interesse: ${String(data.get("service")).trim()}`,
-      `Mensagem: ${String(data.get("message")).trim()}`
+      ui.whatsappIntro || "Olá, gostaria de conversar com a Control Consultoria Empresarial.",
+      "",
+      `${ui.whatsappName || "Nome"}: ${getValue("name")}`,
+      getValue("company") ? `${ui.whatsappCompany || "Empresa"}: ${getValue("company")}` : null,
+      `${ui.whatsappEmail || "E-mail"}: ${getValue("email")}`,
+      `${ui.whatsappPhone || "Telefone / WhatsApp"}: ${getValue("phone")}`,
+      `${ui.whatsappService || "Serviço de interesse"}: ${getValue("service")}`,
+      "",
+      `${ui.whatsappMessage || "Mensagem"}: ${getValue("message")}`
     ].filter(Boolean);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    const newWindow = window.open("about:blank", "_blank");
     if (newWindow) {
-      showFormFeedback("Mensagem preparada no WhatsApp. Você pode revisar antes de enviar.");
+      newWindow.opener = null;
+      newWindow.location.replace(url);
+      showFormFeedback(ui.whatsappPrepared || "Mensagem preparada com sucesso. Você será direcionado ao WhatsApp para revisar e concluir o envio.");
       form.reset();
+      form.querySelectorAll("[aria-invalid]").forEach((field) => field.removeAttribute("aria-invalid"));
+      form.querySelectorAll("[data-error-for]").forEach((error) => { error.textContent = ""; });
     } else {
-      showFormFeedback("Não foi possível abrir o WhatsApp. Verifique o bloqueador de pop-ups.", true);
+      showFormFeedback(ui.whatsappBlocked || "Não foi possível preparar sua mensagem. Verifique os campos e tente novamente.", true);
     }
   });
 
