@@ -1,5 +1,5 @@
 
-# Control Consultoria Empresarial
+## Control Consultoria Empresarial
 
 A responsive institutional website developed for Control Consultoria Empresarial, focused on accessibility, performance, usability, and a consistent experience across different devices.
 
