@@ -1,8 +1,8 @@
 import { ArrowRight, BookOpenCheck, CheckCircle2, Eye, Gem, Headphones, MapPin, Sparkles, Target } from "lucide-react";
-// Free photo under the Unsplash License.
-import teamImg from "@/assets/colegas_comemorando.webp.asset.json";
 import { Reveal } from "./Reveal";
 import { Hl, SectionTitle } from "./SectionTitle";
+
+const teamImg = "/images/colegas_comemorando.webp";
 
 const features = [
   { icon: Headphones, title: "Atendimento Personalizado", text: "Equipe treinada para suporte ágil e soluções inteligentes." },
@@ -67,7 +67,7 @@ export function About() {
           <div className="relative">
             <div className="absolute -inset-3 rounded-[2rem] border border-leaf/30" aria-hidden />
             <img
-              src={teamImg.url}
+              src={teamImg}
               alt="Duas colegas comemorando com um 'toca aqui' em frente ao notebook"
               width={1200}
               height={800}

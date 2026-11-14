@@ -1,8 +1,8 @@
 import { ArrowRight, ChevronDown, MapPin, MessageCircle } from "lucide-react";
-// Free photo under the Unsplash License.
-import heroBg from "@/assets/fundo_escritorio_aberto.webp.asset.json";
 import { CONTACT, FOCUS } from "./data";
 import { LogoMark } from "./Logo";
+
+const heroBg = "/images/fundo_escritorio_aberto.webp";
 
 const stats = [
   { value: "7+", label: "Anos de Atuação" },
@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section id="inicio" className="surface-dark relative flex min-h-svh items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <img src={heroBg.url} alt="" className="h-full w-full object-cover" />
+        <img src={heroBg} alt="" className="h-full w-full object-cover" />
         <div className="overlay-hero absolute inset-0" />
       </div>
       <div className="glow-blob -right-40 top-10 h-96 w-96" aria-hidden />

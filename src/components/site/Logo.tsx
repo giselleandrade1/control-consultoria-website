@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo_control.png.asset.json";
+
+const logo = "/images/logo_control.png";
 
 export function LogoMark({ className }: { className?: string }) {
-  return <img src={logo.url} alt="" width={239} height={218} className={cn("h-10 w-auto", className)} />;
+  return <img src={logo} alt="" width={239} height={218} className={cn("h-10 w-auto", className)} />;
 }
 
 export function Logo({ className }: { className?: string }) {

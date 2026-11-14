@@ -1,9 +1,9 @@
 import { Award, Clock, LineChart, ShieldCheck, UserCheck, Users } from "lucide-react";
-// Free photos under the Unsplash License.
-import methodBg from "@/assets/fundo_metodologia_quadro.webp.asset.json";
-import diffBg from "@/assets/fundo_diferenciais_quebracabeca.webp.asset.json";
 import { Reveal } from "./Reveal";
 import { Hl, PhotoBackdrop, SectionTitle } from "./SectionTitle";
+
+const methodBg = "/images/fundo_metodologia_quadro.webp";
+const diffBg = "/images/fundo_diferenciais_quebracabeca.webp";
 
 const steps = [
   { title: "Diagnóstico", text: "Análise aprofundada dos processos, finanças e operações da sua empresa para identificar oportunidades e desafios." },
@@ -24,7 +24,7 @@ const differentials = [
 export function Method() {
   return (
     <section id="metodologia" className="surface-dark relative isolate overflow-hidden py-24 lg:py-32">
-      <PhotoBackdrop src={methodBg.url} className="-z-10" />
+      <PhotoBackdrop src={methodBg} className="-z-10" />
       <div className="container-site">
         <SectionTitle
           pill="Metodologia"
@@ -57,7 +57,7 @@ export function Method() {
 export function Differentials() {
   return (
     <section id="diferenciais" className="surface-dark relative isolate overflow-hidden py-24 lg:py-32">
-      <PhotoBackdrop src={diffBg.url} className="-z-10" />
+      <PhotoBackdrop src={diffBg} className="-z-10" />
       <div className="container-site">
         <SectionTitle pill="Diferenciais" sub="Mais que consultoria, uma parceria comprometida com o crescimento do seu negócio.">
           Por que a <Hl>Control</Hl>?

@@ -7,17 +7,17 @@ import {
   type ContactErrors,
   type ContactValues,
 } from "@/lib/contact-form";
-// Free photo under the Unsplash License.
-import ctaBg from "@/assets/fundo_cta_escritorio.webp.asset.json";
 import { Logo } from "./Logo";
 import { CONTACT, NAV, SELECT_SERVICE_EVENT, SERVICES, SOCIAL } from "./data";
 import { Reveal } from "./Reveal";
 import { Hl, PhotoBackdrop } from "./SectionTitle";
 
+const ctaBg = "/images/fundo_cta_escritorio.webp";
+
 export function ContactCta() {
   return (
     <section id="fale-conosco" className="surface-dark relative isolate overflow-hidden py-24 lg:py-32">
-      <PhotoBackdrop src={ctaBg.url} className="-z-10" />
+      <PhotoBackdrop src={ctaBg} className="-z-10" />
       <div className="container-site">
         <Reveal className="glass mx-auto max-w-4xl rounded-[2rem] px-6 py-14 text-center shadow-lift sm:px-14 sm:py-20">
           <span className="pill">Primeiro passo</span>

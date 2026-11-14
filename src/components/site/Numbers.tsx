@@ -1,11 +1,10 @@
 import { Instagram, Linkedin, MessageCircle } from "lucide-react";
-// Free photo under the Unsplash License.
-import numbersBg from "@/assets/fundo_numeros_particulas.webp.asset.json";
-// Viviane's own photo, from the company's current website.
-import vivianeImg from "@/assets/viviane_andrade.webp.asset.json";
 import { CONTACT, SOCIAL } from "./data";
 import { CountUp, Reveal } from "./Reveal";
 import { Hl, PhotoBackdrop, SectionTitle } from "./SectionTitle";
+
+const numbersBg = "/images/fundo_numeros_particulas.webp";
+const vivianeImg = "/images/viviane_andrade.webp";
 
 const numbers = [
   { to: 7, suffix: "+", label: "Anos de Atuação" },
@@ -17,7 +16,7 @@ const numbers = [
 export function Numbers() {
   return (
     <section id="numeros" className="surface-dark relative isolate overflow-hidden py-24 lg:py-28">
-      <PhotoBackdrop src={numbersBg.url} className="-z-10" />
+      <PhotoBackdrop src={numbersBg} className="-z-10" />
       <div className="container-site">
         <SectionTitle pill="Impacto" sub="Resultados que falam por si e parcerias que transformam negócios.">
           Nossos <Hl>Números</Hl>
@@ -59,7 +58,7 @@ export function Leadership() {
           <div className="grid place-items-center bg-indigo/70 p-10">
             <div className="rounded-full bg-leaf-gradient p-1.5 shadow-glow">
               <img
-                src={vivianeImg.url}
+                src={vivianeImg}
                 alt="Viviane Andrade, CEO e fundadora da Control Consultoria"
                 width={1220}
                 height={1007}

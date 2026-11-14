@@ -1,12 +1,6 @@
-import consultoriaEmpresarialImg from "@/assets/servico_consultoria_aperto_mao.webp.asset.json";
-import recrutamentoSelecaoImg from "@/assets/servico_recrutamento_entrevista.webp.asset.json";
-import gestaoEstrategicaImg from "@/assets/servico_gestao_graficos.webp.asset.json";
-import consultoriaHumanizadaImg from "@/assets/servico_humanizada_conversa.webp.asset.json";
-import departamentoPessoalImg from "@/assets/servico_dp_documentos.webp.asset.json";
-import treinamentoDesenvolvimentoImg from "@/assets/servico_treinamento_palestra.webp.asset.json";
-import apoioAdministrativoImg from "@/assets/servico_apoio_escritorio.webp.asset.json";
 import type { Challenge } from "@/lib/diagnosis";
-import eventosCorporativosImg from "@/assets/servico_eventos_conferencia.webp.asset.json";
+
+const image = (name: string) => `/images/${name}`;
 
 export const CONTACT = {
   phoneDisplay: "(11) 96137-1183",
@@ -115,7 +109,7 @@ export const SERVICES: Service[] = [
   {
     id: "consultoria-empresarial",
     category: "gestao",
-    image: consultoriaEmpresarialImg.url,
+    image: image("servico_consultoria_aperto_mao.webp"),
     title: "Consultoria Empresarial",
     description:
       "Estratégia, desenvolvimento de negócios, gestão operacional e arquitetura corporativa para transformar desafios em oportunidades.",
@@ -130,7 +124,7 @@ export const SERVICES: Service[] = [
   {
     id: "recrutamento-selecao",
     category: "pessoas",
-    image: recrutamentoSelecaoImg.url,
+    image: image("servico_recrutamento_entrevista.webp"),
     title: "Recrutamento & Seleção",
     description:
       "Processos seletivos inteligentes que conectam sua empresa aos melhores talentos, com análise de perfil e assessments.",
@@ -145,7 +139,7 @@ export const SERVICES: Service[] = [
   {
     id: "gestao-estrategica",
     category: "gestao",
-    image: gestaoEstrategicaImg.url,
+    image: image("servico_gestao_graficos.webp"),
     title: "Gestão Estratégica",
     description:
       "Transformamos dados e números em estratégias de gestão para impulsionar o crescimento sustentável do seu negócio.",
@@ -160,7 +154,7 @@ export const SERVICES: Service[] = [
   {
     id: "consultoria-humanizada",
     category: "pessoas",
-    image: consultoriaHumanizadaImg.url,
+    image: image("servico_humanizada_conversa.webp"),
     title: "Consultoria Humanizada",
     description:
       "Autoconhecimento, qualidade de vida emocional e desenvolvimento pessoal para transformar desafios em crescimento.",
@@ -175,7 +169,7 @@ export const SERVICES: Service[] = [
   {
     id: "departamento-pessoal",
     category: "rotina",
-    image: departamentoPessoalImg.url,
+    image: image("servico_dp_documentos.webp"),
     title: "Departamento Pessoal",
     description:
       "Gestão completa de folha de pagamento, admissão, rescisão, eSocial e legislação trabalhista.",
@@ -190,7 +184,7 @@ export const SERVICES: Service[] = [
   {
     id: "treinamento-desenvolvimento",
     category: "pessoas",
-    image: treinamentoDesenvolvimentoImg.url,
+    image: image("servico_treinamento_palestra.webp"),
     title: "Treinamento & Desenvolvimento",
     description:
       "Programas de capacitação personalizados para desenvolver talentos e impulsionar o desempenho da sua equipe.",
@@ -205,7 +199,7 @@ export const SERVICES: Service[] = [
   {
     id: "apoio-administrativo",
     category: "rotina",
-    image: apoioAdministrativoImg.url,
+    image: image("servico_apoio_escritorio.webp"),
     title: "Apoio Administrativo",
     description:
       "Serviços combinados de escritório para que a rotina da sua empresa funcione com organização, agilidade e sem atritos.",
@@ -220,7 +214,7 @@ export const SERVICES: Service[] = [
   {
     id: "eventos-corporativos",
     category: "rotina",
-    image: eventosCorporativosImg.url,
+    image: image("servico_eventos_conferencia.webp"),
     title: "Eventos Corporativos",
     description:
       "Organização de feiras, congressos, exposições e confraternizações — com coffee break e serviço de alimentação para receber bem.",
