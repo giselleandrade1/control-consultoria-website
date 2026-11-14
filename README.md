@@ -176,12 +176,20 @@ For inquiries and business information:
 
 ---
 
-## Author
+## 🌺 Developed By
 
-**Giselle Andrade**
+<div align="center">
 
-Full Stack Developer in Progress | Backend Focus | Java & JavaScript
+  <a href="https://github.com/giselleandrade1">
+    <img src="https://avatars.githubusercontent.com/u/187031179" width="150" alt="Giselle Andrade"/>
+  </a>
 
-GitHub: [@giselleandrade1](https://github.com/giselleandrade1)
+  ### Giselle Andrade
 
-Developed with attention to detail, accessibility, performance, and user experience.
+  **Full Stack Developer in Progress | Backend Focus | Java & JavaScript**
+
+  Developed with attention to detail, accessibility, performance, and user experience.
+
+  [![GitHub](https://img.shields.io/badge/GitHub-giselleandrade1-181717?style=for-the-badge&logo=github)](https://github.com/giselleandrade1)
+
+</div>
